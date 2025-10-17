@@ -1,0 +1,9 @@
+.mainHeading {
+  font-size: 4rem;
+  line-height: 4.2rem;
+
+  @media (max-width: 36em) {
+    font-size: 2.5rem;
+    line-height: 2.8rem;
+  }
+}

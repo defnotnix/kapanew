@@ -1,0 +1,29 @@
+.root {
+  position: relative;
+}
+
+.flower_container {
+  position: absolute;
+  left: -5rem;
+  top: 10rem;
+  transition: 0.1s linear;
+}
+
+.flower_container {
+  position: absolute;
+  left: -5rem;
+  top: 10rem;
+  transition: 0.1s linear;
+}
+
+.flower_container_alt {
+  position: absolute;
+  right: -5rem;
+  top: 10rem;
+  transition: 0.1s linear;
+  transform: rotate(180deg);
+}
+
+.flower_container svg {
+  stroke: var(--kc-color-600) !important;
+}

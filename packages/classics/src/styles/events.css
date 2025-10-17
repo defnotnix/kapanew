@@ -1,0 +1,14 @@
+.ke-heading {
+  font-family: var(--ke-font-heading);
+  font-size: 3.5rem !important;
+  line-height: 3.8rem !important;
+  font-weight: 700;
+  color: var(--ke-color-dark);
+}
+
+@media (max-width: 36em) {
+  .ke-heading {
+    font-size: 2rem !important;
+    line-height: 2.3rem !important;
+  }
+}

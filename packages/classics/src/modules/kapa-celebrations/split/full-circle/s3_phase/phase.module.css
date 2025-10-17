@@ -1,0 +1,11 @@
+.root {}
+
+.card_cover {
+    cursor: pointer;
+    /* transition: .2s ease-in-out;
+
+    &:hover {
+        margin-top: -1rem;
+
+    } */
+}

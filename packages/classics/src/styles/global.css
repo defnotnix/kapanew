@@ -1,0 +1,87 @@
+:root {
+  /* KaPa Celebrations */
+
+  --kc-color-50: #fdf3f3;
+  --kc-color-100: #fbe5e5;
+  --kc-color-200: #f8d0d1;
+  --kc-color-300: #f2afb1;
+  --kc-color-400: #e98082;
+  --kc-color-500: #db585b;
+  --kc-color-600: #ba3538;
+  --kc-color-700: #a72e31;
+  --kc-color-800: #8b292b;
+  --kc-color-900: #74282a;
+  --kc-color-950: #1b0707;
+  --kc-color-dark: #320f0f;
+
+  --kc-color-gradient: linear-gradient(
+    150deg,
+    var(--kc-color-600),
+    var(--kc-color-900)
+  );
+
+  --ke-color-50: #f0f8ff;
+  --ke-color-100: #e0f0fe;
+  --ke-color-200: #bae1fd;
+  --ke-color-300: #7ccafd;
+  --ke-color-400: #37aff9;
+  --ke-color-500: #0d95ea;
+  --ke-color-600: #0176c8;
+  --ke-color-700: #025ea2;
+  --ke-color-800: #065086;
+  --ke-color-900: #0c436e;
+  --ke-color-950: #020b13;
+  --ke-color-dark: #021224;
+
+  --ke-color-gradient: linear-gradient(
+    150deg,
+    var(--ke-color-600),
+    var(--ke-color-900)
+  );
+
+  --kc-font-heading: "MADE Mirage", sans-serif;
+  --kc-font-text: "Host Grotesk";
+
+  --ke-font-heading: "Funnel Display", sans-serif;
+  --ke-font-text: "Host Grotesk";
+}
+
+body {
+  width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -ms-overflow-style: none !important;
+  /* IE and Edge */
+  scrollbar-width: none !important;
+  /* Firefox */
+  scroll-behavior: smooth;
+
+  font-family:
+    "Host Grotesk",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif !important;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.pos_relative {
+  position: relative;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+.capitalize {
+  text-transform: uppercase;
+}

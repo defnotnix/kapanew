@@ -1,0 +1,19 @@
+.category_label {
+  padding: 1rem 0;
+  transition: 0.3s ease-in-out;
+  font-size: 4rem !important;
+  color: var(--kc-color-dark);
+  cursor: pointer;
+}
+
+.category_label:hover {
+  color: var(--kc-color-600);
+}
+
+@media (max-width: 768px) {
+  .category_label {
+    font-size: 2rem !important;
+    padding: 0.5rem 0;
+    font-size: 2rem;
+  }
+}

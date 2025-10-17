@@ -1,0 +1,12 @@
+.leaf_backdrop {
+  position: absolute;
+  top: 30vh;
+  right: 0;
+  width: 50vw;
+  z-index: 0;
+}
+
+.testimonial_paper {
+  background: #ffffffaa;
+  backdrop-filter: blur(5px);
+}

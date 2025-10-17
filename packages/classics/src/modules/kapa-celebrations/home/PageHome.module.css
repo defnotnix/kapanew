@@ -1,0 +1,25 @@
+.snapContainer {
+  height: 100svh;
+  overflow-y: auto;
+  width: 100vw;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+
+  /* This is the key: tells the browser to "stop snapping" 100px below the top */
+
+
+  overscroll-behavior: none;
+}
+
+.snapSection {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .snapContainer {
+    scroll-behavior: auto;
+  }
+}

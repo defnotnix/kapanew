@@ -1,0 +1,14 @@
+.kc-heading {
+  font-family: var(--kc-font-heading);
+  font-size: 3rem !important;
+  line-height: 3.5rem !important;
+  font-weight: 700;
+  color: var(--kc-color-dark);
+}
+
+@media (max-width: 36em) {
+  .kc-heading {
+    font-size: 2rem !important;
+    line-height: 2.3rem !important;
+  }
+}
