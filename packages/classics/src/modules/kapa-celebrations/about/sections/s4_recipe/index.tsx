@@ -20,12 +20,14 @@ import Autoplay from "embla-carousel-autoplay";
 
 export function SectionAboutRecipe() {
   const recipe =
-    getCmsDatas("kc-about-recipe").map((item: any) => {
-      return {
-        ...item,
-        ...item.text,
-      };
-    }) || [];
+    getCmsDatas("kc-about-recipe")
+      .map((item: any) => {
+        return {
+          ...item,
+          ...item.text,
+        };
+      })
+      ?.sort((a: any, b: any) => a.id - b.id) || [];
   console.log(recipe);
 
   const autoplay = useRef(Autoplay({ delay: 5000 }));
@@ -37,6 +39,8 @@ export function SectionAboutRecipe() {
         style={{
           background: "var(--kc-color-300)",
           position: "relative",
+          width: "100vw",
+          overflow: "hidden",
         }}
       >
         <div
