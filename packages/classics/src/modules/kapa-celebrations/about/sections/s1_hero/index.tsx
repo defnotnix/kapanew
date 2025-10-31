@@ -85,7 +85,7 @@ export function SectionAboutHero() {
             h={{ base: 300, lg: 800 }}
             className="has_clip"
             style={{
-              backgroundImage: `url(${sectionData.image})`,
+              backgroundImage: `url(${sectionData?.image})`,
               backgroundSize: "cover",
               backgroundPosition: "center center",
             }}
