@@ -48,6 +48,7 @@ export function FeaturedSectionCard({
             justifyContent: "space-between",
             backgroundImage: `url(${image})`,
             backgroundSize: "cover",
+            backgroundPosition:"center"
           }}
         />
 

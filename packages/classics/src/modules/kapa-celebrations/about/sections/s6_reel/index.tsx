@@ -12,11 +12,14 @@ import {
 } from "@mantine/core";
 import { useDisclosure } from "@mantine/hooks";
 import { Play } from "@phosphor-icons/react";
+import { getCmsData } from "../../../../../helpers";
 
 //import imgBg from "../../../../../assets/team/IMG_7016.JPG";
 
 export function SectionCelebrationsAboutShowcase() {
   const [opened, { open, close }] = useDisclosure(false);
+
+  const sectionData = getCmsData("kc-about-reel");
 
   return (
     <>
@@ -38,7 +41,7 @@ export function SectionCelebrationsAboutShowcase() {
           h="100%"
           top={0}
           left={0}
-          //src={imgBg.src}
+          src={sectionData.src}
         />
 
         <Container size="xs" pt={300} pos="relative">
