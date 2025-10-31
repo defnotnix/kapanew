@@ -1,3 +1,2 @@
 import { PageEvents } from "@classics/ui";
-
-export default PageEvents.Testimonials;
+export default PageEvents.Events.Profile;
