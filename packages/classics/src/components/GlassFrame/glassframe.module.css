@@ -199,4 +199,8 @@
   width: 90vw;
   z-index: 2;
   top: 50%;
+
+  @media (max-width: 36em) {
+    width: 200vw;
+  }
 }

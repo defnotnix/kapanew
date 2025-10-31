@@ -14,6 +14,9 @@ import {
 import { images } from "../../assets";
 //context
 
+import { SectionContactEvents } from "../../components/Contact";
+import { FooterEvents } from "../../components/Footer";
+
 export function ClientWrapper({ children }: PropsWithChildren) {
   return (
     <ContextPageProvider>
@@ -39,6 +42,8 @@ export function ClientWrapper({ children }: PropsWithChildren) {
       />
 
       {children}
+      <SectionContactEvents />
+      <FooterEvents />
     </ContextPageProvider>
   );
 }

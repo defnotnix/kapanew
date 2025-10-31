@@ -156,8 +156,8 @@ export function SectionHomeHero() {
         <Grid>
           <Grid.Col
             span={{ base: 12, lg: 5 }}
-            pt={300}
-            h={{ base: "auto", lg: "100vh" }}
+            pt={{ base: 130, lg: 300 }}
+            h={{ base: "50vh", lg: "100vh" }}
             style={{
               display: "flex",
               flexDirection: "column",
@@ -170,7 +170,23 @@ export function SectionHomeHero() {
                 initial="initial"
                 animate="visible"
               >
-                <Text size="xs" c="gray.0" opacity={0.5} fw={600}>
+                <Text
+                  size="xs"
+                  c="gray.0"
+                  opacity={0.5}
+                  fw={600}
+                  visibleFrom="lg"
+                >
+                  KAPA CELEBRATIONS
+                </Text>
+                <Text
+                  size="xs"
+                  ta="center"
+                  c="gray.0"
+                  opacity={0.5}
+                  fw={600}
+                  hiddenFrom="lg"
+                >
                   KAPA CELEBRATIONS
                 </Text>
               </motion.div>
@@ -188,12 +204,27 @@ export function SectionHomeHero() {
                   }}
                   fw={700}
                   c="gray.0"
+                  visibleFrom="lg"
+                >
+                  {mainData?.text?.heading}
+                </Text>
+                <Text
+                  ta="center"
+                  className="kc-heading"
+                  style={{
+                    fontSize: "3.5rem",
+                    lineHeight: "3.8rem",
+                  }}
+                  fw={700}
+                  c="gray.0"
+                  hiddenFrom="lg"
                 >
                   {mainData?.text?.heading}
                 </Text>
               </motion.div>
 
               <Box
+                visibleFrom="lg"
                 id="heromain"
                 my="xl"
                 pos="relative"
@@ -227,7 +258,7 @@ export function SectionHomeHero() {
               </Box>
             </Stack>
 
-            <Group gap="2rem">
+            <Group gap="2rem" visibleFrom="lg">
               <Text c="gray.0" size="xs" fw={700} opacity={0.5}>
                 THE CLASSICS SOCIALS
               </Text>
@@ -243,12 +274,14 @@ export function SectionHomeHero() {
 
           <Grid.Col
             span={{ base: 12, lg: 2 }}
-            h={{ base: "auto", lg: "100vh" }}
+            h={{ base: "50vh", lg: "100vh" }}
+            pt={{ base: 100, lg: 0 }}
             style={{
               display: "flex",
               alignItems: "flex-end",
               justifyContent: "center",
             }}
+            visibleFrom="lg"
           >
             <motion.div
               variants={variantTextAnimate(0)}
@@ -283,8 +316,23 @@ export function SectionHomeHero() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text ta="right" size="xs" c="gray.0" fw={600}>
-                    FEATURING - WEDDING EVENT
+                  <Text
+                    ta="right"
+                    size="xs"
+                    c="gray.0"
+                    fw={600}
+                    visibleFrom="lg"
+                  >
+                    FEATURED EVENTS
+                  </Text>
+                  <Text
+                    ta="center"
+                    size="xs"
+                    c="gray.0"
+                    fw={600}
+                    hiddenFrom="lg"
+                  >
+                    FEATURED EVENTS
                   </Text>
                 </motion.div>
                 <motion.div
@@ -293,11 +341,26 @@ export function SectionHomeHero() {
                   animate="visible"
                 >
                   <Text
+                    visibleFrom="lg"
                     size="3rem"
                     ta="right"
                     className="kc-heading"
                     c="gray.0"
                     fw={600}
+                  >
+                    {sectionData[active]?.text?.eventName || ""}
+                  </Text>
+
+                  <Text
+                    hiddenFrom="lg"
+                    ta="center"
+                    c="gray.0"
+                    fw={600}
+                    style={{
+                      fontFamily: "var(--kc-heading)",
+                      fontSize: "1.5rem",
+                      lineHeight: "2rem",
+                    }}
                   >
                     {sectionData[active]?.text?.eventName || ""}
                   </Text>
@@ -307,7 +370,13 @@ export function SectionHomeHero() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text opacity={0.6} ta="right" size="xs" c="gray.0" fw={600}>
+                  <Text
+                    opacity={0.6}
+                    ta={{ base: "center", lg: "right" }}
+                    size="xs"
+                    c="gray.0"
+                    fw={600}
+                  >
                     {String(
                       new Date(sectionData[active]?.text?.eventDate)
                     ).substring(0, 15)}
@@ -316,7 +385,7 @@ export function SectionHomeHero() {
                 </motion.div>
               </Stack>
 
-              <Box my="xl">
+              <Box my={{ base: 0, lg: "xl" }}>
                 <Group justify="flex-end" gap="xs">
                   <ActionIcon
                     bg="none"

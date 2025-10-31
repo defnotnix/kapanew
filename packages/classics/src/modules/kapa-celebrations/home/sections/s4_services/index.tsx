@@ -146,15 +146,29 @@ export function SectionHomeServices() {
           background: "var(--kc-color-300)",
         }}
       >
-        <Container py={160} pos="relative" style={{ zIndex: 3 }}>
+        <Container
+          py={{ base: 80, lg: 160 }}
+          pos="relative"
+          style={{ zIndex: 3 }}
+        >
           <Stack>
             <motion.div
               variants={variantTextAnimate(0)}
               initial="initial"
               animate="visible"
             >
-              <Text size="xl" fw={700} opacity={0.5}>
+              <Text size="xl" fw={700} opacity={0.5} visibleFrom="lg">
                 Celebrating Life’s Milestones with KaPa Celebrations
+              </Text>
+              <Text
+                size="xl"
+                fw={700}
+                opacity={0.5}
+                hiddenFrom="lg"
+                ta="center"
+              >
+                Celebrating Life’s Milestones
+                <br /> with KaPa Celebrations
               </Text>
             </motion.div>
           </Stack>
@@ -179,13 +193,32 @@ export function SectionHomeServices() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text size="xs" fw={700} opacity={0.5} py="xl">
+                  <Text
+                    size="xs"
+                    fw={700}
+                    opacity={0.5}
+                    py="xl"
+                    visibleFrom="lg"
+                  >
+                    & GENERALLY A WIDE RAGE OF PRIVATE & PUBLIC EVENTS
+                  </Text>
+
+                  <Text
+                    size="xs"
+                    fw={700}
+                    opacity={0.5}
+                    py="xl"
+                    ta="center"
+                    hiddenFrom="lg"
+                  >
                     & GENERALLY A WIDE RAGE OF PRIVATE & PUBLIC EVENTS
                   </Text>
                 </motion.div>
               </Stack>
 
-              <PaperCards />
+              <Box visibleFrom="lg">
+                <PaperCards />
+              </Box>
             </SimpleGrid>
           </Box>
         </Container>

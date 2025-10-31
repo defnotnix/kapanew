@@ -1,27 +1,15 @@
 "use client";
 
-import { variantTextAnimate } from "@classics/ui";
+import { getCmsData, getCmsDatas, variantTextAnimate } from "@classics/ui";
 
 import { Container, Grid, Image, Stack, Text } from "@mantine/core";
 
 import { motion } from "motion/react";
 
-const images = [
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-  "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-];
-
 export function SectionAboutGlimpse() {
+  const imageData = getCmsDatas("kc-about-glimpse") || [];
+  const quoteData = getCmsData("kc-about-glimpse-info") || [];
+
   return (
     <>
       <section
@@ -53,7 +41,11 @@ export function SectionAboutGlimpse() {
         >
           <Grid gutter={"xs"}>
             <Grid.Col span={{ base: 6, lg: 4 }}>
-              <Image radius="md" h={{ base: 200, lg: 450 }} src={images[0]} />
+              <Image
+                radius="md"
+                h={{ base: 200, lg: 450 }}
+                src={imageData[0]?.image}
+              />
               <Image
                 mt="xs"
                 radius="md"
@@ -63,7 +55,7 @@ export function SectionAboutGlimpse() {
                 }}
                 w={{ base: "100%", lg: "80%" }}
                 h={{ base: 200, lg: 350 }}
-                src={images[0]}
+                src={imageData[1]?.image}
               />
 
               <Text
@@ -80,12 +72,16 @@ export function SectionAboutGlimpse() {
               </Text>
             </Grid.Col>
             <Grid.Col span={{ base: 6, lg: 4 }} pt={{ base: 0, lg: 64 }}>
-              <Image radius="md" h={{ base: 200, lg: 450 }} src={images[0]} />
+              <Image
+                radius="md"
+                h={{ base: 200, lg: 450 }}
+                src={imageData[2]?.image}
+              />
               <Image
                 mt="xs"
                 radius="md"
                 h={{ base: 200, lg: 450 }}
-                src={images[0]}
+                src={imageData[3]?.image}
               />
             </Grid.Col>
             <Grid.Col
@@ -103,8 +99,8 @@ export function SectionAboutGlimpse() {
                 rest so you don’t miss a moment.
               </Text>
 
-              <Image radius="md" w={"80%"} h={350} src={images[0]} />
-              <Image mt="xs" radius="md" h={450} src={images[0]} />
+              <Image radius="md" w={"80%"} h={350} src={imageData[4]?.image} />
+              <Image mt="xs" radius="md" h={450} src={imageData[5]?.image} />
             </Grid.Col>
           </Grid>
 
@@ -123,6 +119,7 @@ export function SectionAboutGlimpse() {
       </section>
 
       <Container
+        hidden
         size="sm"
         py={100}
         pos="relative"
@@ -169,6 +166,7 @@ export function SectionAboutGlimpse() {
       </Container>
 
       <Container
+        hidden
         pb={{
           base: 100,
           lg: 200,
@@ -199,7 +197,7 @@ export function SectionAboutGlimpse() {
               }}
               radius="lg"
               h={250}
-              src="https://images.unsplash.com/photo-1580795478844-5ed694336c90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://imageData.unsplash.com/photo-1580795478844-5ed694336c90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
           </Grid.Col>
           <Grid.Col span={{ base: 12, lg: 4 }} pt="xl">
@@ -279,7 +277,7 @@ export function SectionAboutGlimpse() {
               }}
               radius="lg"
               h={250}
-              src="https://images.unsplash.com/photo-1580795478844-5ed694336c90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://imageData.unsplash.com/photo-1580795478844-5ed694336c90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
           </Grid.Col>
           <Grid.Col
@@ -306,7 +304,7 @@ export function SectionAboutGlimpse() {
               }}
               radius="lg"
               h={250}
-              src="https://images.unsplash.com/photo-1580795478844-5ed694336c90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://imageData.unsplash.com/photo-1580795478844-5ed694336c90?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             />
           </Grid.Col>
           <Grid.Col span={{ base: 12, lg: 4 }} pt="xl">

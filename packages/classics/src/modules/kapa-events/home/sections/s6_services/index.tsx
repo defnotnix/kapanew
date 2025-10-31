@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react"; // ⬅️ add useRef
 //mantine
 import {
   Box,
@@ -23,7 +23,7 @@ import { animate, motion } from "framer-motion";
 import { usePageContext } from "@classics/ui";
 //components
 
-import { useInterval } from "@mantine/hooks";
+import { useInterval, useIntersection } from "@mantine/hooks"; // ⬅️ add useIntersection
 import { ServiceText } from "./component/ServiceText";
 
 const eventServices = [
@@ -81,6 +81,20 @@ export function SectionEServices() {
     "AGMs",
   ]);
 
+  // * REFS / VISIBILITY
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const { ref: observerRef, entry } = useIntersection({
+    root: null,
+    threshold: 0.15, // start/stop when ~15% of the section is visible
+  });
+
+  // Keep both refs pointing at the same node
+  useEffect(() => {
+    if (sectionRef.current) {
+      observerRef(sectionRef.current as HTMLElement);
+    }
+  }, [observerRef]);
+
   // * FUNCTION
 
   const initiateAnimateFunction = async () => {
@@ -129,17 +143,38 @@ export function SectionEServices() {
 
   const interval = useInterval(() => initiateAnimateFunction(), 2000);
 
-  // * PRERENDER
-
+  // * VISIBILITY-CONTROLLED LOOP
   useEffect(() => {
-    interval.start();
+    const shouldRun =
+      !!entry?.isIntersecting && !document.hidden;
 
-    return interval.stop;
-  }, []);
+    if (shouldRun) {
+      interval.start();
+    } else {
+      interval.stop();
+    }
+
+    // Pause/resume when tab visibility changes
+    const onVisibility = () => {
+      if (entry?.isIntersecting && !document.hidden) {
+        interval.start();
+      } else {
+        interval.stop();
+      }
+    };
+    document.addEventListener("visibilitychange", onVisibility);
+
+    return () => {
+      interval.stop();
+      document.removeEventListener("visibilitychange", onVisibility);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entry?.isIntersecting]); // re-evaluate when section enters/leaves viewport
 
   return (
     <>
       <section
+        ref={sectionRef} // ⬅️ attach ref
         style={{
           minHeight: "100vh",
         }}

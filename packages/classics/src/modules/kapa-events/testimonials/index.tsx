@@ -23,7 +23,7 @@ import { motion } from "motion/react";
 
 import { useQuery } from "@tanstack/react-query";
 import chunk from "lodash/chunk";
-import { getData } from "./page.api";
+import { getCMS as getData } from "./page.api";
 
 import classes from "./page.module.css";
 

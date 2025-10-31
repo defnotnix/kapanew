@@ -85,7 +85,10 @@ export function FeaturedSectionCard({
                 }}
               >
                 <b>{title}</b>
-                <br /> Annual Seminar - AUG 2024
+                <span className="mantine-visible-from-lg">
+                  {" "}
+                  <br /> Annual Seminar - AUG 2024
+                </span>
               </Text>
             </SimpleGrid>
           </Box>

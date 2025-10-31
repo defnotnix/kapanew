@@ -4,7 +4,7 @@ export function MotionHeroFlower() {
   const strokeColor = "#2A4389";
   const strokeWidth = 10;
 
-  const animateProps = {
+  const animateProps: any = {
     initial: { pathLength: 0 },
     whileInView: { pathLength: 1 },
     viewport: { once: true },
@@ -13,7 +13,7 @@ export function MotionHeroFlower() {
       ease: "easeInOut",
     },
   };
-
+  ``;
   return (
     <motion.svg
       height="200"

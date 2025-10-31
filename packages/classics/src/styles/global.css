@@ -20,18 +20,18 @@
     var(--kc-color-900)
   );
 
-  --ke-color-50: #f0f8ff;
-  --ke-color-100: #e0f0fe;
-  --ke-color-200: #bae1fd;
-  --ke-color-300: #7ccafd;
-  --ke-color-400: #37aff9;
-  --ke-color-500: #0d95ea;
-  --ke-color-600: #0176c8;
-  --ke-color-700: #025ea2;
-  --ke-color-800: #065086;
-  --ke-color-900: #0c436e;
-  --ke-color-950: #020b13;
-  --ke-color-dark: #021224;
+  --ke-color-50: #f1f8fd;
+  --ke-color-100: #deeefb;
+  --ke-color-200: #c5e3f8;
+  --ke-color-300: #9ed1f2;
+  --ke-color-400: #6fb7eb;
+  --ke-color-500: #4e9ae3;
+  --ke-color-600: #397fd7;
+  --ke-color-700: #306bc5;
+  --ke-color-800: #2c57a1;
+  --ke-color-900: #294a7f;
+  --ke-color-950: #1c2d4b;
+  --ke-color-dark: #1c2d4b;
 
   --ke-color-gradient: linear-gradient(
     150deg,
@@ -44,6 +44,10 @@
 
   --ke-font-heading: "Funnel Display", sans-serif;
   --ke-font-text: "Host Grotesk";
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

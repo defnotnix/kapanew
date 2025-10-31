@@ -4,7 +4,7 @@ export function MotionHeroFlower() {
   const strokeColor = "#2A4389";
   const strokeWidth = 20;
 
-  const animateProps = {
+  const animateProps: any = {
     initial: { pathLength: 0 },
     whileInView: { pathLength: 1 },
     viewport: { once: true },

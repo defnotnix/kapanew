@@ -127,7 +127,21 @@ export function SectionAboutRecipe() {
                       color="var(--kc-color-600)"
                     />
 
-                    <Text c="var(--kc-color-dark)" size="2rem" pb="md">
+                    <Text
+                      c="var(--kc-color-dark)"
+                      visibleFrom="lg"
+                      size="2rem"
+                      pb="md"
+                    >
+                      {stepinfo.title}
+                    </Text>
+
+                    <Text
+                      c="var(--kc-color-dark)"
+                      hiddenFrom="lg"
+                      size="md"
+                      pb="md"
+                    >
                       {stepinfo.title}
                     </Text>
                   </Stack>
@@ -164,7 +178,7 @@ export function SectionAboutRecipe() {
             >
               <Image
                 radius="xs"
-                h={500}
+                h={{ base: 200, lg: 500 }}
                 src={
                   recipe[current]?.image ||
                   "https://images.pexels.com/photos/30184617/pexels-photo-30184617.jpeg"
@@ -172,9 +186,9 @@ export function SectionAboutRecipe() {
               />
             </Paper>
 
-            <div
+            <Box
+              h={{ base: "auto", lg: 500 }}
               style={{
-                height: 500,
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "space-between",
@@ -182,6 +196,7 @@ export function SectionAboutRecipe() {
             >
               <div>
                 <Text
+                  visibleFrom="lg"
                   size="xs"
                   c="var(--kc-color-dark)"
                   opacity={0.5}
@@ -191,13 +206,13 @@ export function SectionAboutRecipe() {
                   Phase {recipe[current]?.step}
                 </Text>
 
-                <Text>{recipe[current]?.title}</Text>
+                <Text visibleFrom="lg">{recipe[current]?.title}</Text>
               </div>
 
               <Text size="xl" c="var(--kc-color-dark)" maw={500} fw={700}>
                 {recipe[current]?.description}
               </Text>
-            </div>
+            </Box>
           </SimpleGrid>
         </Container>
       </section>

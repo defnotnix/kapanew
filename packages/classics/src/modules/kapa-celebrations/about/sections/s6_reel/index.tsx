@@ -13,6 +13,8 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { Play } from "@phosphor-icons/react";
 
+//import imgBg from "../../../../../assets/team/IMG_7016.JPG";
+
 export function SectionCelebrationsAboutShowcase() {
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -36,10 +38,10 @@ export function SectionCelebrationsAboutShowcase() {
           h="100%"
           top={0}
           left={0}
-          src="https://images.pexels.com/photos/6224982/pexels-photo-6224982.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          //src={imgBg.src}
         />
 
-        <Container size="xs" pt={300}>
+        <Container size="xs" pt={300} pos="relative">
           <Paper
             p="xl"
             bg="#BA3538aa"

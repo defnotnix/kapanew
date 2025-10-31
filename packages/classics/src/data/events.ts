@@ -1,26 +1,4 @@
-import imgPriyankaAdityaMain from "../assets/events/priyanka_aditya/main.jpg";
-import imgPriyanka1Main from "../assets/events/priyanka_aditya/1.jpg";
-import imgPriyanka2Main from "../assets/events/priyanka_aditya/2.jpg";
-import imgPriyanka3Main from "../assets/events/priyanka_aditya/3.jpg";
-import imgPriyanka4Main from "../assets/events/priyanka_aditya/4.jpg";
-import imgPriyanka5Main from "../assets/events/priyanka_aditya/5.jpg";
-import imgPriyanka6Main from "../assets/events/priyanka_aditya/6.jpg";
-
-import imgSubhadraMaaMain from "../assets/events/janku/main.jpg";
-import imgSubhadra1Main from "../assets/events/janku/1.jpg";
-import imgSubhadra2Main from "../assets/events/janku/2.jpg";
-import imgSubhadra3Main from "../assets/events/janku/3.jpg";
-import imgSubhadra4Main from "../assets/events/janku/4.jpg";
-import imgSubhadra5Main from "../assets/events/janku/5.jpg";
-
-import imgSaiMain from "../assets/events/sai/main.jpg";
-import imgSai1Main from "../assets/events/sai/1.jpg";
-import imgSai2Main from "../assets/events/sai/2.jpg";
-import imgSai3Main from "../assets/events/sai/3.jpg";
-import imgSai4Main from "../assets/events/sai/4.jpg";
-import imgSai5Main from "../assets/events/sai/5.jpg";
-
-export const mockEvents = [
+export const mockCorporateEvents = [
   {
     id: 101,
     event_images: [
@@ -194,123 +172,99 @@ export const mockEvents = [
   },
 ];
 
-export const mockCelebrations = [
+// Util: normalize different bundlers (Next/Image etc.)
+const getSrc = (img: any) => img?.src?.src ?? img?.src ?? img;
+
+// Fallback captions if you don't pass custom ones
+const DEFAULT_CAPTIONS = [
+  "Captured moment",
+  "Candid laughter",
+  "Ceremony highlights",
+  "Family & friends gathered",
+  "Decor details",
+  "Joyful celebration",
+  "Tradition & togetherness",
+];
+
+// Helper to convert a Celebrations.<Key> array into event_images[]
+// const buildEventImages = (key: any, eventId: any, captions: any[] = []) =>
+//   (Celebrations[key] ?? []).map((img: any, i: number) => ({
+//     id: i + 1,
+//     image: getSrc(img),
+//     caption: captions[i] || DEFAULT_CAPTIONS[i] || "Captured moment",
+//     event: eventId,
+//   }));
+
+// Define all events (from your “complete names” list)
+const EVENT_DEFS = [
+  // 1) Priyanka & Adittya (Celebrations key: PriyankaAditya)
   {
     id: 1,
-    event_images: [
-      {
-        id: 2,
-        image: imgPriyankaAdityaMain.src,
-        meta_keyphrase: "Nepali Wedding, Floral Decor, Priyanka Aditya",
-        meta_description:
-          "Main photo of Priyanka and Aditya's traditional wedding celebration with floral theme.",
-        holder: "5",
-        is_active: true,
-        caption: "A timeless moment under the floral canopy",
-        event: 1,
-      },
-      {
-        id: 3,
-        image: imgPriyanka1Main.src,
-        caption: "Haldi ceremony in soft golden hues",
-        event: 1,
-      },
-      {
-        id: 4,
-        image: imgPriyanka2Main.src,
-        caption: "The radiant bride, Priyanka, during Mehendi",
-        event: 1,
-      },
-      {
-        id: 5,
-        image: imgPriyanka3Main.src,
-        caption: "Joyful baraat moments",
-        event: 1,
-      },
-      {
-        id: 6,
-        image: imgPriyanka4Main.src,
-        caption: "The varmala exchange, under a starlit mandap",
-        event: 1,
-      },
-      {
-        id: 7,
-        image: imgPriyanka5Main.src,
-        caption: "Traditional rituals with family blessings",
-        event: 1,
-      },
-      {
-        id: 8,
-        image: imgPriyanka6Main.src,
-        caption: "Reception night celebration in grandeur",
-      },
-    ],
-    event_video: [
-      {
-        id: 1,
-        link: "https://www.youtube.com/embed/mzJ4vCjSt28",
-        holder: "2",
-        is_active: true,
-        caption: "Wedding Highlights — Priyanka & Aditya",
-        event: 1,
-      },
+    key: "PriyankaAditya",
+    shortname: "Priyanka & Adittya",
+    fullname: "Traditional Wedding of Priyanka & Adittya",
+    captions: [
+      "A timeless moment under the floral canopy",
+      "Haldi ceremony in soft golden hues",
+      "The radiant bride during Mehendi",
+      "Joyful baraat moments",
+      "The varmala exchange, under a starlit mandap",
+      "Traditional rituals with family blessings",
+      "Reception night celebration in grandeur",
     ],
     color: "#E8A291",
-    shortname: "Priyanka & Aditya",
-    fullname: "Traditional Wedding of Priyanka & Aditya",
-    meta_keyphrase: "Nepali Wedding, KaPa Celebrations, Priyanka and Aditya",
+    meta_keyphrase: "Nepali Wedding, KaPa Celebrations, Priyanka and Adittya",
     meta_description:
-      "Experience the elegant and joyful wedding of Priyanka and Aditya, curated by KaPa Celebrations.",
+      "Experience the elegant and joyful wedding of Priyanka and Adittya, curated by KaPa Celebrations.",
     event_date: "2024-12-06",
     venue: "The Heritage Banquets, Kathmandu",
     theme: "Floral Nightsky",
     highlight_message:
       "A wedding wrapped in tradition, love, and floral elegance.",
     event_description:
-      "Priyanka and Aditya's wedding was a blend of heritage rituals and dreamy modern touches. From haldi to pheras, every moment radiated warmth, color, and cultural richness.",
+      "A blend of heritage rituals and dreamy modern touches—from haldi to pheras—radiating warmth and cultural richness.",
     is_featured: true,
     event_category: 1,
     company: 1,
-  },
-  {
-    id: 2,
-    event_images: [
+    event_video: [
       {
-        id: 2,
-        image: imgSubhadraMaaMain.src,
-        caption: "Subhadra Maa seated for the blessings ritual",
-        event: 2,
-      },
-      {
-        id: 3,
-        image: imgSubhadra1Main.src,
-        caption: "Traditional attire worn during the Janku ceremony",
-        event: 2,
-      },
-      {
-        id: 4,
-        image: imgSubhadra2Main.src,
-        caption: "Family offering prayers during the Janku",
-        event: 2,
-      },
-      {
-        id: 5,
-        image: imgSubhadra3Main.src,
-        caption: "Beautifully decorated altar for ancestral worship",
-        event: 2,
-      },
-      {
-        id: 6,
-        image: imgSubhadra4Main.src,
-        caption: "Floral arrangements symbolizing purity and long life",
-        event: 2,
-      },
-      {
-        id: 7,
-        image: imgSubhadra5Main.src,
-        caption: "Group photo with extended family",
+        id: 1,
+        link: "https://www.youtube.com/embed/mzJ4vCjSt28",
+        holder: "2",
+        is_active: true,
+        caption: "Wedding Highlights — Priyanka & Adittya",
+        event: 1,
       },
     ],
+  },
+
+  // 2) Subhadra Maa — Janku (Celebrations key: SubhadraJankur)
+  {
+    id: 2,
+    key: "SubhadraJankur",
+    shortname: "Subhadra Maa Janku",
+    fullname: "Janku Ceremony of Subhadra Maa",
+    captions: [
+      "Subhadra Maa seated for the blessings ritual",
+      "Traditional attire worn during the Janku ceremony",
+      "Family offering prayers during the Janku",
+      "Beautifully decorated altar for ancestral worship",
+      "Floral arrangements symbolizing purity and long life",
+      "Group photo with extended family",
+    ],
+    color: "var(--kc-color-300)",
+    meta_keyphrase: "Janku, Newar Rituals, Longevity Ceremony",
+    meta_description:
+      "Celebrate the revered Janku ceremony of Subhadra Maa, honoring a life of wisdom and grace.",
+    event_date: "2024-10-21",
+    venue: "Family Residence, Patan",
+    theme: "Divine Grace in Tradition",
+    highlight_message: "A sacred milestone, celebrated with legacy and love.",
+    event_description:
+      "At 77 years, 7 months, and 7 days, Subhadra Maa’s Janku honored long life and ancestral blessings with Newar traditions.",
+    is_featured: false,
+    event_category: 2,
+    company: 1,
     event_video: [
       {
         id: 1,
@@ -321,85 +275,259 @@ export const mockCelebrations = [
         event: 2,
       },
     ],
-    shortname: "Subhadra Maa Janku",
-    fullname: "Janku Ceremony of Subhadra Maa",
-    meta_keyphrase: "Janku, Newar Rituals, Longevity Ceremony",
-    meta_description:
-      "Celebrate the revered Janku ceremony of Subhadra Maa, honoring a life of wisdom and grace.",
-    event_date: "2024-10-21",
-    venue: "Family Residence, Patan",
-    theme: "Divine Grace in Tradition",
-    highlight_message: "A sacred milestone, celebrated with legacy and love.",
-    event_description:
-      "At 77 years, 7 months, and 7 days, Subhadra Maa’s Janku was a beautiful spiritual ceremony with prayers, rituals, and family festivities. It honored long life and ancestral blessings with Newar traditions.",
-    is_featured: false,
-    color: "var(--kc-color-300)",
-    event_category: 2,
-    company: 1,
   },
+
+  // 3) Elani's Birthday (Celebrations key: Elani)
   {
     id: 3,
-    event_images: [
-      {
-        id: 2,
-        image: imgSaiMain.src,
-        caption: "Sai’s magical birthday entrance",
-        event: 3,
-      },
-      {
-        id: 3,
-        image: imgSai1Main.src,
-        caption: "Candy-themed decoration setup",
-        event: 3,
-      },
-      {
-        id: 7,
-        image: imgSai5Main.src,
-        caption: "Family posing at the photo booth",
-      },
-      {
-        id: 4,
-        image: imgSai2Main.src,
-        caption: "Birthday cake cutting moment",
-        event: 3,
-      },
-      {
-        id: 5,
-        image: imgSai3Main.src,
-        caption: "Kids enjoying interactive games",
-        event: 3,
-      },
-      {
-        id: 6,
-        image: imgSai4Main.src,
-        caption: "Balloon drop finale",
-        event: 3,
-      },
+    key: "Elani",
+    shortname: "Elani's Birthday",
+    fullname: "Elani's Birthday Celebration",
+    captions: [
+      "Birthday entrance with smiles",
+      "Decor details in pastel tones",
+      "Candid laughter with friends",
+      "Cake cutting moment",
+      "Games and giggles",
     ],
-    event_video: [
-      {
-        id: 1,
-        link: "https://www.youtube.com/embed/mzJ4vCjSt28",
-        holder: "2",
-        is_active: true,
-        caption: "Sai’s 5th Birthday Party Recap",
-        event: 3,
-      },
-    ],
-    shortname: "Sai's Birthday",
-    fullname: "Sai’s 5th Birthday Bash",
-    meta_keyphrase: "Kids Birthday, Themed Party, KaPa Celebrations",
+    color: "#F6C1CF",
+    meta_keyphrase: "Birthday Party, Kids Birthday, Elani",
     meta_description:
-      "Sai’s 5th birthday bash was filled with fun, colors, and pure joy — crafted by KaPa Celebrations.",
-    event_date: "2024-07-03",
-    venue: "Royal Celebration Hall, Bhaktapur",
-    theme: "Candyland Carnival",
-    highlight_message: "A birthday bursting with color, laughter, and fun!",
+      "A cheerful birthday party for Elani filled with pastel decor, cake, and fun activities.",
+    event_date: "2024-08-20",
+    venue: "Private Venue, Kathmandu",
+    theme: "Pastel Garden",
+    highlight_message: "A day of joy, sprinkles, and sunshine.",
     event_description:
-      "Sai’s birthday party was a vibrant Candyland-themed celebration full of games, activities, balloon art, and a jaw-dropping cake. It was a magical day for kids and adults alike.",
-    is_featured: true,
-    color: "#BFC5D7",
+      "Playful decor, delightful desserts, and heartwarming moments with family and friends.",
+    is_featured: false,
+    event_category: 3,
+    company: 1,
+  },
+
+  // 4) Nora & Joshua (Celebrations key: NoraJoshua)
+  {
+    id: 4,
+    key: "NoraJoshua",
+    shortname: "Nora & Joshua",
+    fullname: "Nora & Joshua",
+    captions: [
+      "A quiet moment together",
+      "Golden-hour portraits",
+      "Celebration details",
+      "Family & friends gathered",
+    ],
+    color: "#D1E3F8",
+    meta_keyphrase: "Couple Session, Nora and Joshua",
+    meta_description:
+      "A heartfelt celebration capturing Nora and Joshua’s bond through intimate portraits and candid moments.",
+    event_date: "2024-11-15",
+    venue: "Kathmandu Valley",
+    theme: "Soft Blues & Whites",
+    highlight_message: "Quiet elegance, honest emotion.",
+    event_description:
+      "A relaxed, elegant session focused on connection, warmth, and timeless imagery.",
+    is_featured: false,
+    event_category: 1,
+    company: 1,
+  },
+
+  // 5) Tanufa & Petr (Celebrations key: TanufaPetra)
+  {
+    id: 5,
+    key: "TanufaPetr",
+    shortname: "Tanufa & Petr",
+    fullname: "Celebration of Tanufa & Petr",
+    captions: [
+      "Grand entrance",
+      "Decor & ambience",
+      "Candid smiles",
+      "Ceremonial highlights",
+    ],
+    color: "#F3E2C0",
+    meta_keyphrase: "Wedding, Celebration, Tanufa and Petr",
+    meta_description:
+      "A warm celebration for Tanufa & Petr with elegant details and heartfelt moments.",
+    event_date: "2025-01-12",
+    venue: "Banquet Hall, Kathmandu",
+    theme: "Warm Neutrals",
+    highlight_message: "Elegance meets ease.",
+    event_description:
+      "From the entrance to the farewell, the day balanced refinement with genuine, candid joy.",
+    is_featured: false,
+    event_category: 1,
+    company: 1,
+  },
+
+  // 6) Nishma & Saurav (Celebrations key: NishmaSaurav)
+  {
+    id: 6,
+    key: "NishmaSaurav",
+    shortname: "Nishma & Saurav",
+    fullname: "Wedding of Nishma & Saurav",
+    captions: [
+      "Couple portraits",
+      "Ceremony details",
+      "Family blessings",
+      "Reception glitz",
+    ],
+    color: "#E8D1E8",
+    meta_keyphrase: "Wedding, Reception, Nishma and Saurav",
+    meta_description:
+      "An elegant wedding story told through classic portraits and candid celebrations.",
+    event_date: "2024-09-09",
+    venue: "Kathmandu",
+    theme: "Lilac & Ivory",
+    highlight_message: "Classic. Candid. Cherished.",
+    event_description:
+      "A graceful celebration blending intimate moments, tradition, and style.",
+    is_featured: false,
+    event_category: 1,
+    company: 1,
+  },
+
+  // 7) Nilambujh & Julie (Celebrations key: NilambujhRijal)
+  {
+    id: 7,
+    key: "NilambujhRijal",
+    shortname: "Nilambujh & Julie",
+    fullname: "Wedding of Nilambujh & Julie",
+    captions: [
+      "Couple portrait",
+      "Cultural rituals",
+      "Family moments",
+      "Reception highlights",
+    ],
+    color: "#CFE5D1",
+    meta_keyphrase: "Wedding, Nilambujh and Julie",
+    meta_description:
+      "A heartfelt wedding with tradition, tenderness, and timeless imagery.",
+    event_date: "2024-06-22",
+    venue: "Kathmandu",
+    theme: "Mint & Cream",
+    highlight_message: "Tradition with a modern heart.",
+    event_description:
+      "A beautifully paced wedding day focusing on family and meaningful rituals.",
+    is_featured: false,
+    event_category: 1,
+    company: 1,
+  },
+
+  // 8) Dilasha & Rijal (no images yet)
+  {
+    id: 8,
+    key: null, // No matching group in Celebrations yet
+    shortname: "Dilasha & Rijal",
+    fullname: "Wedding of Dilasha & Rijal",
+    captions: [],
+    color: "#D7D7F2",
+    meta_keyphrase: "Wedding, Dilasha and Rijal",
+    meta_description:
+      "A refined celebration of love for Dilasha & Rijal. (Images to be added when available.)",
+    event_date: "2024-05-18",
+    venue: "Kathmandu",
+    theme: "Dusty Blue",
+    highlight_message: "Elegant, effortless, endearing.",
+    event_description:
+      "An intimate ceremony celebrating family bonds and quiet, meaningful moments.",
+    is_featured: false,
+    event_category: 1,
+    company: 1,
+  },
+
+  // 9) Shubhechchha & Arjun (Celebrations key: SubhecchaArjuna)
+  {
+    id: 9,
+    key: "SubhecchaArjuna",
+    shortname: "Shubhechchha & Arjun",
+    fullname: "Wedding of Shubhechchha & Arjun",
+    captions: [
+      "Ceremonial entry",
+      "Ritual highlights",
+      "Joyful candid",
+      "Couple portrait",
+    ],
+    color: "#FFD3B6",
+    meta_keyphrase: "Wedding, Newar Wedding, Shubhechchha and Arjun",
+    meta_description:
+      "A vibrant celebration with rituals, music, and heartfelt moments.",
+    event_date: "2024-12-20",
+    venue: "Lalitpur",
+    theme: "Peach & Gold",
+    highlight_message: "Vibrant rituals, timeless frames.",
+    event_description:
+      "From rituals to reception, the day overflowed with color and connection.",
+    is_featured: false,
+    event_category: 1,
+    company: 1,
+  },
+
+  // 10) Ishu & Rishab (Celebrations key: IshuRishab)
+  {
+    id: 10,
+    key: "IshuRishab",
+    shortname: "Ishu & Rishab",
+    fullname: "Wedding of Ishu & Rishab",
+    captions: [
+      "Haldi fun",
+      "Couple portraits",
+      "Family blessings",
+      "Reception night",
+    ],
+    color: "#F9E5B7",
+    meta_keyphrase: "Wedding, Ishu and Rishab",
+    meta_description:
+      "A colorful celebration for Ishu & Rishab filled with laughter and tradition.",
+    event_date: "2024-11-30",
+    venue: "Kathmandu",
+    theme: "Saffron & Sand",
+    highlight_message: "Color, culture, connection.",
+    event_description:
+      "A joy-filled wedding that balanced light-hearted fun with meaningful rituals.",
+    is_featured: false,
+    event_category: 1,
+    company: 1,
+  },
+
+  // 11) Krisha Di — Baby’s Gender Reveal (no images yet)
+  {
+    id: 11,
+    key: null, // add when you have assets (e.g., "KrishaGenderReveal")
+    shortname: "Krisha Di",
+    fullname: "Krisha Di — Baby’s Gender Reveal",
+    captions: [],
+    color: "#BFDDF4",
+    meta_keyphrase: "Gender Reveal, Baby Celebration, Family Event",
+    meta_description:
+      "A joyful gender reveal celebration with family and friends.",
+    event_date: "2024-04-14",
+    venue: "Family Residence, Kathmandu",
+    theme: "Sky Blue & Blush",
+    highlight_message: "Tiny kicks, big joy.",
+    event_description:
+      "A cozy celebration revealing the sweetest surprise with balloons, confetti, and happy tears.",
+    is_featured: false,
     event_category: 3,
     company: 1,
   },
 ];
+
+// Finally, build and export the array
+export const mockCelebrations = EVENT_DEFS.map((def) => ({
+  id: def.id,
+  event_images: [], // empty until images exist
+  event_video: def.event_video ?? [],
+  color: def.color,
+  shortname: def.shortname,
+  fullname: def.fullname,
+  meta_keyphrase: def.meta_keyphrase,
+  meta_description: def.meta_description,
+  event_date: def.event_date,
+  venue: def.venue,
+  theme: def.theme,
+  highlight_message: def.highlight_message,
+  event_description: def.event_description,
+  is_featured: def.is_featured ?? false,
+  event_category: def.event_category,
+  company: def.company ?? 1,
+}));

@@ -37,10 +37,12 @@ export function PageSplitDecors() {
       const dataCMS = await getCMS();
 
       setTimeout(() => {
-        dispatch({
+      dispatch({
           type: "SET_PRE_DATA",
           payload: {
             cms: dataCMS,
+            events: [],
+            serviceCategory: [],
           },
         });
       }, 1000);
@@ -72,12 +74,37 @@ export function PageSplitDecors() {
                 variants={variantTextAnimate(0.1)}
                 initial="initial"
                 animate="visible"
+                className="mantine-visible-from-lg"
               >
                 <h1
                   style={{
                     fontFamily: "var(--kc-font-heading)",
                     textAlign: "center",
                     fontSize: "6rem",
+                  }}
+                >
+                  <b
+                    style={{
+                      color: "var(--kc-color-700)",
+                    }}
+                  >
+                    Decors
+                  </b>{" "}
+                  by KaPa
+                </h1>
+              </motion.div>
+
+              <motion.div
+                variants={variantTextAnimate(0.1)}
+                initial="initial"
+                animate="visible"
+                className="mantine-hidden-from-lg"
+              >
+                <h1
+                  style={{
+                    fontFamily: "var(--kc-font-heading)",
+                    textAlign: "center",
+                    fontSize: "3rem",
                   }}
                 >
                   <b
@@ -104,7 +131,7 @@ export function PageSplitDecors() {
                     }}
                     c="var(--kc-color-600)"
                     size="2rem"
-                    ta="right"
+                    ta={{ base: "center", lg: "right" }}
                     fw={700}
                   >
                     Aesthetic Elegance,
@@ -119,6 +146,7 @@ export function PageSplitDecors() {
                 >
                   <Text
                     c="var(--kc-color-600)"
+                    ta={{ base: "center", lg: "left" }}
                     size="xs"
                     fw={700}
                     pt={{ base: 0, lg: 28 }}
@@ -133,12 +161,12 @@ export function PageSplitDecors() {
           </Box>
         </Container>
 
-        <Divider py={50} color="var(--kc-color-300)" />
+        <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
         <section>
           {/* PRE-CELEBRATION */}
 
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Grid>
               <Grid.Col span={{ base: 12, lg: 4 }}>
                 <motion.div
@@ -146,7 +174,11 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text className="kc-heading" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    className="kc-heading"
+                    fw={700}
+                  >
                     Pre-Event
                   </Text>
                 </motion.div>
@@ -156,7 +188,12 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text c="var(--kc-color-600)" size="xs" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    c="var(--kc-color-600)"
+                    size="xs"
+                    fw={700}
+                  >
                     Design strategy & client coordination before event.
                   </Text>
                 </motion.div>
@@ -172,10 +209,10 @@ export function PageSplitDecors() {
                     "Floor plan for décor setup",
                     "Budget estimation specific to décor",
                   ].map((task, i) => (
-                    <Grid.Col span={{ base: 6, lg: 4 }} key={i}>
+                    <Grid.Col span={{ base: 12, lg: 4 }} key={i}>
                       <motion.div>
                         <Paper
-                          h={120}
+                          h={{ base: "auto", lg: 120 }}
                           p="xl"
                           radius="lg"
                           bg="rgba(255,255,255,.5)"
@@ -199,10 +236,10 @@ export function PageSplitDecors() {
             </Grid>
           </Container>
 
-          <Divider py={50} color="var(--kc-color-300)" />
+          <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
           {/* DESIGN & PRODUCTION */}
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Grid>
               <Grid.Col span={{ base: 12, lg: 4 }}>
                 <motion.div
@@ -210,7 +247,11 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text className="kc-heading" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    className="kc-heading"
+                    fw={700}
+                  >
                     Design
                     <br /> & Production
                   </Text>
@@ -221,7 +262,12 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text c="var(--kc-color-600)" size="xs" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    c="var(--kc-color-600)"
+                    size="xs"
+                    fw={700}
+                  >
                     Décor creation, design detailing, and vendor coordination.
                   </Text>
                 </motion.div>
@@ -238,10 +284,10 @@ export function PageSplitDecors() {
                     "Signage design (welcome board, directional, etc.)",
                     "Vendor dealings",
                   ].map((task, i) => (
-                    <Grid.Col span={{ base: 6, lg: 4 }} key={i}>
+                    <Grid.Col span={{ base: 12, lg: 4 }} key={i}>
                       <motion.div>
                         <Paper
-                          h={120}
+                          h={{ base: "auto", lg: 120 }}
                           p="xl"
                           radius="lg"
                           bg="rgba(255,255,255,.5)"
@@ -265,10 +311,10 @@ export function PageSplitDecors() {
             </Grid>
           </Container>
 
-          <Divider py={50} color="var(--kc-color-300)" />
+          <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
           {/* ON-SITE EXECUTION */}
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Grid>
               <Grid.Col span={{ base: 12, lg: 4 }}>
                 <motion.div
@@ -276,7 +322,11 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text className="kc-heading" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    className="kc-heading"
+                    fw={700}
+                  >
                     On-Site
                     <br /> Execution
                   </Text>
@@ -287,7 +337,12 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text c="var(--kc-color-600)" size="xs" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    c="var(--kc-color-600)"
+                    size="xs"
+                    fw={700}
+                  >
                     Real-time décor installation and coordination on event day.
                   </Text>
                 </motion.div>
@@ -301,10 +356,10 @@ export function PageSplitDecors() {
                     "Time-managed setup execution",
                     "Final touch-ups before guest arrival",
                   ].map((task, i) => (
-                    <Grid.Col span={{ base: 6, lg: 4 }} key={i}>
+                    <Grid.Col span={{ base: 12, lg: 4 }} key={i}>
                       <motion.div>
                         <Paper
-                          h={120}
+                          h={{ base: "auto", lg: 120 }}
                           p="xl"
                           radius="lg"
                           bg="rgba(255,255,255,.5)"
@@ -328,10 +383,10 @@ export function PageSplitDecors() {
             </Grid>
           </Container>
 
-          <Divider py={50} color="var(--kc-color-300)" />
+          <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
           {/* POST EVENT */}
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Grid>
               <Grid.Col span={{ base: 12, lg: 4 }}>
                 <motion.div
@@ -339,7 +394,11 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text className="kc-heading" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    className="kc-heading"
+                    fw={700}
+                  >
                     Post-Event
                   </Text>
                 </motion.div>
@@ -349,7 +408,12 @@ export function PageSplitDecors() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text c="var(--kc-color-600)" size="xs" fw={700}>
+                  <Text
+                    ta={{ base: "center", lg: "left" }}
+                    c="var(--kc-color-600)"
+                    size="xs"
+                    fw={700}
+                  >
                     After-event teardown and closure tasks.
                   </Text>
                 </motion.div>
@@ -361,10 +425,10 @@ export function PageSplitDecors() {
                     "Dismantling and venue clearance of décor",
                     "Damage check and vendor reconciliation (decor only)",
                   ].map((task, i) => (
-                    <Grid.Col span={{ base: 6, lg: 4 }} key={i}>
+                    <Grid.Col span={{ base: 12, lg: 4 }} key={i}>
                       <motion.div>
                         <Paper
-                          h={120}
+                          h={{ base: "auto", lg: 120 }}
                           p="xl"
                           radius="lg"
                           bg="rgba(255,255,255,.5)"
@@ -388,11 +452,15 @@ export function PageSplitDecors() {
             </Grid>
           </Container>
 
-          <Divider py={50} color="var(--kc-color-300)" />
+          <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
           {/* SERVICE COMPARISON */}
-          <Container py={50}>
-            <Text className="kc-heading" ta="center" fw={700}>
+          <Container py={{ base: 16, lg: 50 }}>
+            <Text
+              ta={{ base: "center", lg: "left" }}
+              className="kc-heading"
+              fw={700}
+            >
               Service Comparison
             </Text>
 

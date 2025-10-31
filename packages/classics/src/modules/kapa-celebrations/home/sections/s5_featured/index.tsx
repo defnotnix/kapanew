@@ -77,7 +77,7 @@ export function SectionHomeFeatured() {
     >
       <Container
         py={{
-          base: 50,
+          base: 200,
           lg: 100,
         }}
         size="xl"
@@ -124,6 +124,19 @@ export function SectionHomeFeatured() {
               A deep dive into how we
               <br /> transform a celebration vision
               <br /> into reality.
+            </div>
+          </motion.div>
+        </Group>
+
+        <Group py="xl" justify="space-between" hiddenFrom="lg">
+          <motion.div
+            variants={variantTextAnimate(0)}
+            initial="initial"
+            animate="visible"
+          >
+            <div className="kc-heading">
+              Explore Our
+              <br /> Featured Celebrations
             </div>
           </motion.div>
         </Group>

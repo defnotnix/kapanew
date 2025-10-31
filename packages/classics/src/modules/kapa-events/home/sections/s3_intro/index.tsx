@@ -2,6 +2,7 @@
 
 import { Container, Grid, Image, SimpleGrid, Stack, Text } from "@mantine/core";
 import {
+  getCmsData,
   usePageContext,
   variantGeneralDelay,
   variantTextAnimate,
@@ -11,9 +12,11 @@ import { motion } from "framer-motion";
 import { images } from "../../../../../assets";
 
 export function SectionIntro() {
+  const sectionData = getCmsData("ke-hero-intro");
+
   return (
     <Container py={100} pos="relative">
-      <Grid>
+      <Grid align="flex-end">
         <Grid.Col span={{ base: 12, lg: 7 }}>
           <motion.div
             variants={variantTextAnimate(0)}
@@ -21,11 +24,27 @@ export function SectionIntro() {
             animate="visible"
           >
             <Text
+              visibleFrom="lg"
               style={{
                 fontFamily: "var(--ke-font-heading)",
-                fontSize: "3rem",
-                lineHeight: "3.5rem",
+                fontSize: "3.5rem",
+                lineHeight: "4rem",
               }}
+              fw={700}
+            >
+              We plan, produce, coordinate, design, style, promote and live for
+              a good party.’ We strategize, produce, coordinate, design, and
+              execute experiences with impact.
+            </Text>
+
+            <Text
+              hiddenFrom="lg"
+              style={{
+                fontFamily: "var(--ke-font-heading)",
+                fontSize: "2rem",
+                lineHeight: "2.5rem",
+              }}
+              fw={700}
             >
               We plan, produce, coordinate, design, style, promote and live for
               a good party.’ We strategize, produce, coordinate, design, and
@@ -34,7 +53,7 @@ export function SectionIntro() {
           </motion.div>
         </Grid.Col>
 
-        <Grid.Col span={{ base: 12, lg: 5 }}>
+        <Grid.Col span={{ base: 12, lg: 5 }} pb={{ base: 0, lg: 32 }}>
           <Stack>
             <motion.div
               variants={variantTextAnimate(0)}

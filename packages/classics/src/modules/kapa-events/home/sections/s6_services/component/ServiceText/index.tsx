@@ -16,7 +16,7 @@ export const ServiceText = ({
       id={id}
       style={{
         fontWeight: 900,
-        //fontFamily: "var(--ke-font-heading)",
+        fontFamily: "Space Grotesk, sans-serif",
         fontSize: "4rem",
         display: "inline-block",
         textTransform: "uppercase",

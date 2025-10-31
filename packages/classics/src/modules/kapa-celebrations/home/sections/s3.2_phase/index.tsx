@@ -1,7 +1,7 @@
 "use client";
 
 import { Container, Image, SimpleGrid, Text } from "@mantine/core";
-import { animate, motion } from "framer-motion";
+import { animate, AnimatePresence, motion } from "framer-motion";
 import { variantTextAnimate } from "../../../../../animation";
 import { images } from "../../../../../assets";
 import classes from "./phase.module.css";
@@ -9,9 +9,19 @@ import { useHover } from "@mantine/hooks";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
+//import imgCelebration from "../../../../../assets/events/celebrations/NoraJoshua/21.jpg";
+//import imgFulLCircle from "../../../../../assets/events/celebrations/SubhecchaArjun/26.jpg";
+
 export function SectionHomePhase() {
   const Router = useRouter();
   const [hovered, setHover]: any = useState(0);
+
+  const animates: any = {
+    initial: { opacity: 0 },
+    visible: {
+      opacity: 1,
+    },
+  };
 
   return (
     <section
@@ -20,6 +30,31 @@ export function SectionHomePhase() {
         background: "var(--kc-color-300)",
       }}
     >
+      <AnimatePresence>
+        {(hovered === 1 || hovered === 2) && (
+          <motion.div
+            key={hovered} // important: unique key per hover state
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6, ease: "easeInOut" }}
+            style={{
+              position: "absolute",
+              zIndex: 0,
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              // backgroundImage: `url(${
+              //   hovered === 1 ? imgCelebration.src : imgFulLCircle.src
+              // })`,
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
+          />
+        )}
+      </AnimatePresence>
+
       <div className={classes.leaf_backdrop}>
         <Image opacity={0.1} width="100%" src={images.graphics.leaf} />
       </div>
@@ -55,8 +90,11 @@ export function SectionHomePhase() {
       </motion.div>
 
       <Container
+        visibleFrom="lg"
         style={{
           height: "100vh",
+          position: "relative",
+          zIndex: 3,
         }}
       >
         <SimpleGrid cols={{ base: 1, lg: 2 }}>
@@ -69,9 +107,8 @@ export function SectionHomePhase() {
             }}
             style={{
               background:
-                hovered == 1
-                  ? "linear-gradient(var(--kc-color-500),var(--kc-color-700))"
-                  : "",
+                hovered == 1 ? "linear-gradient(#db585b66,#a72e31)" : "",
+              backdropFilter: hovered == 1 ? "blur(9px)" : "",
             }}
           >
             <motion.div
@@ -124,9 +161,8 @@ export function SectionHomePhase() {
             }}
             style={{
               background:
-                hovered == 2
-                  ? "linear-gradient(var(--kc-color-500),var(--kc-color-700))"
-                  : "",
+                hovered == 2 ? "linear-gradient(#db585b66,#a72e31)" : "",
+              backdropFilter: hovered == 2 ? "blur(9px)" : "",
             }}
           >
             <motion.div

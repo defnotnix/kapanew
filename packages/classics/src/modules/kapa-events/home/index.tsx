@@ -9,8 +9,8 @@ import { usePageContext } from "@classics/ui";
 import { SectionClients } from "./sections/s2_clients";
 import { SectionHomeHero } from "./sections/s1_hero";
 //api
-import { getCMS } from "./page.api";
-import { Group, Paper, Text } from "@mantine/core";
+import { getCMS, getEvents } from "./page.api";
+import { Center, Group, Loader, Paper, Text } from "@mantine/core";
 import { SectionIntro } from "./sections/s3_intro";
 import { SectionShowcase } from "./sections/s4_showcase";
 import { SectionNumbers } from "./sections/s5_numbers";
@@ -34,12 +34,13 @@ export function PageHome() {
     queryKey: ["events", "home"],
     queryFn: async () => {
       const dataCMS = await getCMS();
+      const events = await getEvents();
 
       dispatch({
         type: "SET_PRE_DATA",
         payload: {
           cms: dataCMS,
-          events: [],
+          events: events,
         },
       });
 
@@ -47,29 +48,23 @@ export function PageHome() {
     },
   });
 
-  if (isFetching) return <div>Loading...</div>;
+  if (isFetching) {
+    return (
+      <section>
+        <Center
+          style={{
+            height: "100vh",
+          }}
+        >
+          <Loader type="dots" color="var(--ke-color-300)" />
+        </Center>
+      </section>
+    );
+  }
 
   return (
     <>
       <SectionHomeHero />
-      {/* <Paper
-        radius={0}
-        bg="var(--ke-color-950)"
-        style={{
-          width: "100%",
-          overflow: "hidden",
-        }}
-      >
-        <Group p="md" w="1000vw">
-          {Array.from({ length: 20 }).map((_, i) => (
-            <div key={i}>
-              <Text size="md" fw={900} c="gray.0" opacity={0.1}>
-                KaPa Events
-              </Text>
-            </div>
-          ))}
-        </Group>
-      </Paper> */}
       <SectionClients />
       <SectionIntro />
       <SectionShowcase />

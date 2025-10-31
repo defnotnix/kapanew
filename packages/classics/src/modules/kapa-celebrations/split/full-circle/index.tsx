@@ -37,10 +37,12 @@ export function PageSplitFullCircle() {
       const dataCMS = await getCMS();
 
       setTimeout(() => {
-        dispatch({
+      dispatch({
           type: "SET_PRE_DATA",
           payload: {
             cms: dataCMS,
+            events: [],
+            serviceCategory: [],
           },
         });
       }, 1000);
@@ -72,12 +74,37 @@ export function PageSplitFullCircle() {
                 variants={variantTextAnimate(0.1)}
                 initial="initial"
                 animate="visible"
+                className="mantine-visible-from-lg"
               >
                 <h1
                   style={{
                     fontFamily: "var(--kc-font-heading)",
                     textAlign: "center",
                     fontSize: "6rem",
+                  }}
+                >
+                  <b
+                    style={{
+                      color: "var(--kc-color-700)",
+                    }}
+                  >
+                    Full Circle
+                  </b>{" "}
+                  by KaPa
+                </h1>
+              </motion.div>
+
+              <motion.div
+                variants={variantTextAnimate(0.1)}
+                initial="initial"
+                animate="visible"
+                className="mantine-hidden-from-lg"
+              >
+                <h1
+                  style={{
+                    fontFamily: "var(--kc-font-heading)",
+                    textAlign: "center",
+                    fontSize: "3rem",
                   }}
                 >
                   <b
@@ -104,7 +131,7 @@ export function PageSplitFullCircle() {
                     }}
                     c="var(--kc-color-600)"
                     size="2rem"
-                    ta="right"
+                    ta={{ base: "center", lg: "right" }}
                     fw={700}
                   >
                     Your Celebration,
@@ -122,6 +149,7 @@ export function PageSplitFullCircle() {
                     size="xs"
                     fw={700}
                     pt={{ base: 0, lg: 28 }}
+                    ta={{ base: "center", lg: "left" }}
                   >
                     A premium full-service package designed for
                     <br /> stress-free, seamless execution.
@@ -134,11 +162,11 @@ export function PageSplitFullCircle() {
 
         <SectionHomePhase />
 
-        <Divider py={50} color="var(--kc-color-300)" />
+        <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
         <section>
           {/* PRE-CELEBRATION */}
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Grid>
               <Grid.Col span={{ base: 12, lg: 4 }}>
                 <motion.div
@@ -174,7 +202,7 @@ export function PageSplitFullCircle() {
                     "Guest experience curation",
                     "Emergency & contingency planning",
                   ].map((task, i) => (
-                    <Grid.Col span={{ base: 6, lg: 4 }} key={i}>
+                    <Grid.Col span={{ base: 12, lg: 4 }} key={i}>
                       <motion.div>
                         <Paper
                           h={120}
@@ -242,10 +270,10 @@ export function PageSplitFullCircle() {
             </Grid>
           </Container>
 
-          <Divider py={50} color="var(--kc-color-300)" />
+          <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
           {/* EXECUTION PHASE */}
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Grid>
               <Grid.Col span={{ base: 12, lg: 4 }}>
                 <motion.div
@@ -283,7 +311,7 @@ export function PageSplitFullCircle() {
                     "Real-time Issue Resolution",
                     "Power & Technical Supervision",
                   ].map((task, i) => (
-                    <Grid.Col span={{ base: 6, lg: 4 }} key={i}>
+                    <Grid.Col span={{ base: 12, lg: 4 }} key={i}>
                       <motion.div>
                         <Paper
                           h={120}
@@ -310,10 +338,10 @@ export function PageSplitFullCircle() {
             </Grid>
           </Container>
 
-          <Divider py={50} color="var(--kc-color-300)" />
+          <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
           {/* POST EVENT */}
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Grid>
               <Grid.Col span={{ base: 12, lg: 4 }}>
                 <motion.div
@@ -348,7 +376,7 @@ export function PageSplitFullCircle() {
                     "Guest Departure Coordination",
                     "Lost & Found Handling",
                   ].map((task, i) => (
-                    <Grid.Col span={{ base: 6, lg: 4 }} key={i}>
+                    <Grid.Col span={{ base: 12, lg: 4 }} key={i}>
                       <motion.div>
                         <Paper
                           h={120}
@@ -375,10 +403,10 @@ export function PageSplitFullCircle() {
             </Grid>
           </Container>
 
-          <Divider py={50} color="var(--kc-color-300)" />
+          <Divider py={{ base: 12, lg: 50 }} color="var(--kc-color-300)" />
 
           {/* SERVICE COMPARISON */}
-          <Container py={50}>
+          <Container py={{ base: 16, lg: 50 }}>
             <Text className="kc-heading" ta="center" fw={700}>
               Service Comparison
             </Text>

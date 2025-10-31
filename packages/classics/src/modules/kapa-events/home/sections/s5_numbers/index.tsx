@@ -23,8 +23,8 @@ export function SectionNumbers() {
 
   return (
     <>
-      <Container pb={100}>
-        <Paper p="4rem" radius="md" shadow="xl">
+      <Container py={100}>
+        <Paper p={{ base: "2rem", lg: "4rem" }} radius="md" shadow="xl">
           <Group>
             <motion.div>
               <Text

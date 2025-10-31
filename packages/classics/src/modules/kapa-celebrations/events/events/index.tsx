@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 //mantine
 import {
   ActionIcon,
-  Box,
   Button,
   Center,
   Container,
@@ -15,22 +14,15 @@ import {
   Space,
   Stack,
   Text,
-  Title,
 } from "@mantine/core";
 //styles
-import classes from "./events.module.css";
 import cx from "clsx";
+import classes from "./events.module.css";
 
+import { ArrowUpRight, CaretLeft, CaretRight } from "@phosphor-icons/react";
 import { MotionProjectFlower } from "./motion/project.flower";
-import {
-  ArrowUpRight,
-  CaretLeft,
-  CaretRight,
-  Heart,
-} from "@phosphor-icons/react";
 
 import { animate, motion } from "framer-motion";
-import { setupFsCheck } from "next/dist/server/lib/router-utils/filesystem";
 
 import { usePageContext, variantGeneralDelay } from "@classics/ui";
 

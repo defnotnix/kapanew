@@ -6,7 +6,6 @@ import {
   variantTextAnimate,
 } from "@classics/ui";
 import { Box, Button, Container, Grid, Overlay, Text } from "@mantine/core";
-import imgHero from "../../../../../assets/team/hero.jpg";
 
 //animate
 import { motion } from "motion/react";
@@ -80,14 +79,15 @@ export function SectionAboutHero() {
             position: "relative",
           }}
         >
-          <Overlay className="has_clip" />
+          <Overlay opacity={0.5} className="has_clip" />
           <Box
             mt={{ base: 50, lg: 0 }}
             h={{ base: 300, lg: 800 }}
             className="has_clip"
             style={{
-              backgroundImage: `url(${imgHero.src})`,
+              backgroundImage: `url(${sectionData.image})`,
               backgroundSize: "cover",
+              backgroundPosition: "center center",
             }}
           ></Box>
         </motion.div>

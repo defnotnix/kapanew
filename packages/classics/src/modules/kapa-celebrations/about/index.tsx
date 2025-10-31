@@ -10,7 +10,7 @@ import { SectionAboutHero } from "./sections/s1_hero";
 
 import { SectionAboutGlimpse } from "./sections/s3_glimpse";
 import { SectionAboutRecipe } from "./sections/s4_recipe";
-import { Space } from "@mantine/core";
+import { Center, Loader, Space } from "@mantine/core";
 import { SectionCelebrationsAboutShowcase } from "./sections/s6_reel";
 
 export function PageAbout() {
@@ -32,6 +32,8 @@ export function PageAbout() {
           type: "SET_PRE_DATA",
           payload: {
             cms: dataCMS,
+            events: [],
+            serviceCategory: [],
           },
         });
       }, 1000);
@@ -40,6 +42,20 @@ export function PageAbout() {
     },
     initialData: false,
   });
+
+  if (isFetching) {
+    return (
+      <section>
+        <Center
+          style={{
+            height: "100vh",
+          }}
+        >
+          <Loader type="dots" color="var(--kc-color-600)" />
+        </Center>
+      </section>
+    );
+  }
 
   return (
     <section

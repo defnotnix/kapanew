@@ -20,7 +20,7 @@ import { MotionFlowerLeaves } from "./svg/flower.leaves";
 import { MotionFlower } from "./svg/flower";
 import { MotionLilyLeaf } from "./svg/leaf";
 
-export const images = {
+export const images: any = {
   logo: {
     main: imgMain.src,
     events: imgEvents.src,

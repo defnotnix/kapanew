@@ -15,7 +15,7 @@ import { motion } from "motion/react";
 import { useQuery } from "@tanstack/react-query";
 
 //api
-import { getData } from "./page.api";
+import { getCMS as getData } from "./page.api";
 
 export function PageFAQs() {
   // * STORE

@@ -1,44 +1,51 @@
 .root {
-    position: relative;
-    display: block;
-    height: 200px
+  position: relative;
+  display: block;
+  height: 200px;
 }
 
 .eventcard {
-    position: absolute;
-    top: 0;
-    right: 0;
-    transition: .2s ease-in-out;
-    cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transition: 0.2s ease-in-out;
+  cursor: pointer;
 
-    &:hover {
-        top: -10px;
-    }
+  &:hover {
+    top: -10px;
+  }
 }
 
-
 .eventcard:nth-child(0) {
-    z-index: 3;
+  z-index: 3;
 }
 
 .eventcard:nth-child(1) {
-    right: -30px;
-    transform: rotate(4deg);
-    z-index: 2;
+  right: -30px;
+  transform: rotate(4deg);
+  z-index: 2;
 }
 
 .eventcard:nth-child(2) {
-    right: -60px;
-    transform: rotate(-4deg);
-    z-index: 1;
+  right: -60px;
+  transform: rotate(-4deg);
+  z-index: 1;
 }
 
 .root:hover {
-    .eventcard:nth-child(1) {
-        right: -150px
-    }
+  .eventcard:nth-child(1) {
+    right: -150px;
 
-    .eventcard:nth-child(2) {
-        right: -300px
+    @media (max-width: 768px) {
+      right: -100px;
     }
+  }
+
+  .eventcard:nth-child(2) {
+    right: -300px;
+
+    @media (max-width: 768px) {
+      right: -200px;
+    }
+  }
 }

@@ -15,6 +15,8 @@ import { images } from "../../assets";
 //context
 
 import imgJankuFeatured from "../../assets/events/janku/feature.jpg";
+import { Footer } from "../../components/Footer";
+import { SectionContact } from "../../components/Contact";
 
 export function ClientWrapper({ children }: PropsWithChildren) {
   return (
@@ -28,11 +30,7 @@ export function ClientWrapper({ children }: PropsWithChildren) {
         title="Celebrations"
         description={`We turn every corporate, public, and entertainment moment into a brand story.`}
         baseUrl="/kapa-celebrations"
-        revertStyleUrls={[
-          "/kapa-celebrations",
-          "/kapa-celebrations/events/showcase",
-          "/kapa-celebrations/services",
-        ]}
+        revertStyleUrls={["/kapa-celebrations", "/kapa-celebrations/services"]}
       />
 
       <NavDrawer
@@ -45,6 +43,9 @@ export function ClientWrapper({ children }: PropsWithChildren) {
       />
 
       {children}
+
+      <SectionContact />
+      <Footer />
     </ContextPageProvider>
   );
 }

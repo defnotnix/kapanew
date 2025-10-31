@@ -1,20 +1,6 @@
 "use client";
 
-import {
-  Center,
-  Container,
-  Divider,
-  Grid,
-  Group,
-  Image,
-  Paper,
-  Stack,
-  Text,
-} from "@mantine/core";
-
-import imgLogo from "@/public/img/logo/classics.svg";
-
-import { MotionLilyLeaf } from "@/public/svg/leaf";
+import { Image, Paper, Text } from "@mantine/core";
 
 export function CardDetails({ data }: { data: any }) {
   return (

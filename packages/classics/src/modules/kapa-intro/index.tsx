@@ -74,9 +74,10 @@ const branches = [
     label: "Events",
     description: "Memorable events to cherish forever",
     quote: "For Your Public & Corporate Events",
-    url: "/kapa-events",
+    //  url: "/kapa-events",
     image: images.logo.events_small,
     background: "var(--ke-color-200)",
+    construction: true,
     hovered: (
       <>
         <div
@@ -110,19 +111,21 @@ const branches = [
     label: "Societies",
     description: "Connecting communities worldwide",
     quote: "For Unique Event Goods & Décor",
-    url: "/kapa-societies",
+    //   url: "/kapa-societies",
     image: images.logo.society_small,
     background: "var(--mantine-color-sky-3)",
     hovered: <></>,
+    construction: true,
   },
   {
     id: 4,
     label: "Creations",
     description: "Innovative designs and masterpieces",
     quote: "For Meaningful Social Causes",
-    url: "/kapa-creations",
+    //  url: "/kapa-creations",
     image: images.logo.creation_small,
     hovered: <></>,
+    construction: true,
   },
 ];
 
@@ -170,7 +173,7 @@ export function PageEntry() {
         <motion.div
           className={classes.companyBox}
           style={{
-            opacity: hovered ? 1 : 0.8,
+            opacity: hovered ? 1 : 0.6,
           }}
           ref={ref}
           onClick={() => {
@@ -196,17 +199,31 @@ export function PageEntry() {
               {branchdata.label}
             </Text>
           </div>
-          <motion.div
-            className={classes.companyContainer}
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ delay: 1 + 0.05 * index }}
-          >
-            <Text size="sm" ta="center" fw={700}>
-              {branchdata.quote}
-            </Text>
-          </motion.div>
 
+          <div>
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: hovered ? 1 : 0, height: 20 }}
+              style={{}}
+            >
+              <Text size="sm" ta="center" fw={700} opacity={0.5}>
+                {hovered && branchdata.construction
+                  ? "(Under Construction)"
+                  : ""}
+              </Text>
+            </motion.div>
+
+            <motion.div
+              className={classes.companyContainer}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ delay: 1 + 0.05 * index }}
+            >
+              <Text size="sm" ta="center" fw={700}>
+                {branchdata.quote}
+              </Text>
+            </motion.div>
+          </div>
           <AnimatePresence>{hovered && branchdata.hovered}</AnimatePresence>
 
           <motion.section

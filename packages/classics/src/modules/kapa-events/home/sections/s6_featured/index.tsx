@@ -117,10 +117,23 @@ export function SectionHomeFeatured() {
           </motion.div>
         </Group>
 
+        <Group py="xl" justify="space-between" hiddenFrom="lg">
+          <motion.div
+            variants={variantTextAnimate(0)}
+            initial="initial"
+            animate="visible"
+          >
+            <div className="ke-heading">
+              Explore Our
+              <br /> Featured Events
+            </div>
+          </motion.div>
+        </Group>
+
         <SimpleGrid cols={{ base: 1, lg: 3 }} my="md">
           {sectionData?.events
             .filter((e: any) => {
-              return e.company == 1;
+              return e.company == 2;
             })
             .slice(0, 3)
             .map((item: any, index: number) => {

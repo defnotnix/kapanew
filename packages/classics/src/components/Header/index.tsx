@@ -141,19 +141,19 @@ export function Header({
               </Button>
             </Group>
 
-            <Button
-              radius="sm"
-              size="sm"
-              px="md"
-              color={`var(--${type}-color-gradient)`}
-              visibleFrom="lg"
-              onClick={() => router.push("/celebrations/contact")}
-              style={{ fontSize: "var(--mantine-font-size-xs)" }}
-              rightSection={<HandWavingIcon weight="duotone" size={16} />}
-            >
-              Get in touch
-            </Button>
-
+            <a href="#contact">
+              <Button
+                radius="sm"
+                size="sm"
+                px="md"
+                color={`var(--${type}-color-gradient)`}
+                visibleFrom="lg"
+                style={{ fontSize: "var(--mantine-font-size-xs)" }}
+                rightSection={<HandWavingIcon weight="duotone" size={16} />}
+              >
+                Get in touch
+              </Button>
+            </a>
             <ThemeIcon size={36} variant="light" color={`gray`}>
               <Burger
                 lineSize={2}

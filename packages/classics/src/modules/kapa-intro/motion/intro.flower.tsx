@@ -6,7 +6,7 @@ export function _MotionIntroFlower() {
   const strokeColor = "#a72e31";
   const strokeWidth = 30;
 
-  const animateProps = {
+  const animateProps: any = {
     initial: { pathLength: 0 },
     whileInView: { pathLength: 1 },
     viewport: { once: true },

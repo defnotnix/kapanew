@@ -64,6 +64,7 @@ export function FeaturedSectionCard({
               justifyContent: "space-between",
               backgroundImage: `url(${image})`,
               backgroundSize: "cover",
+              backgroundPosition: "center",
             }}
           />
         </Paper>
@@ -114,7 +115,25 @@ export function FeaturedSectionCard({
                 }}
               >
                 <Stack gap="4px">
-                  <Text w={100} size="xl" lh="1.5rem" fw={600} tt="capitalize">
+                  <Text
+                    visibleFrom="lg"
+                    w={100}
+                    size="xl"
+                    lh="1.5rem"
+                    fw={600}
+                    tt="capitalize"
+                  >
+                    {title}
+                  </Text>
+
+                  <Text
+                    hiddenFrom="lg"
+                    w={100}
+                    size="md"
+                    lh="1rem"
+                    fw={600}
+                    tt="capitalize"
+                  >
                     {title}
                   </Text>
                 </Stack>

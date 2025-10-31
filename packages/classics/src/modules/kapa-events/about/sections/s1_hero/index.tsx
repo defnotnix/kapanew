@@ -1,7 +1,12 @@
 "use client";
 
-import { variantGeneralDelay, variantTextAnimate } from "@classics/ui";
+import {
+  getCmsData,
+  variantGeneralDelay,
+  variantTextAnimate,
+} from "@classics/ui";
 import { Box, Button, Container, Grid, Overlay, Text } from "@mantine/core";
+//import imgHero from "../../../../../assets/team/hero.jpg";
 
 //animate
 import { motion } from "motion/react";
@@ -15,6 +20,8 @@ import { useRouter } from "next/navigation";
 
 export function SectionAboutHero() {
   const Router = useRouter();
+
+  const sectionData = getCmsData("ke-about-hero");
 
   return (
     <>
@@ -41,8 +48,7 @@ export function SectionAboutHero() {
                 "mantine-visible-from-lg"
               )}
             >
-              A committed team changing the way events are designed and
-              experienced.
+              {sectionData?.text?.heading}
             </motion.div>
 
             <motion.div
@@ -55,15 +61,11 @@ export function SectionAboutHero() {
                 "mantine-hidden-from-lg"
               )}
             >
-              A committed team changing the way events are designed and
-              experienced.
+              {sectionData?.text?.heading}
             </motion.div>
           </Grid.Col>
           <Grid.Col span={{ base: 12, lg: 5 }}>
-            <Text size="sm">
-              Behind every ‘happily ever after’ was our team — dedicated,
-              inspired, and relentless in the pursuit of perfection.
-            </Text>
+            <Text size="sm">{sectionData?.text?.subheading}</Text>
           </Grid.Col>
         </Grid>
       </Container>
@@ -84,7 +86,7 @@ export function SectionAboutHero() {
             h={{ base: 300, lg: 800 }}
             className="has_clip"
             style={{
-              backgroundImage: `url("https://images.pexels.com/photos/2422294/pexels-photo-2422294.jpeg")`,
+              backgroundImage: `url(${sectionData?.image})`,
               backgroundSize: "cover",
             }}
           ></Box>

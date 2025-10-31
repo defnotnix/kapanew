@@ -199,6 +199,7 @@ export function SectionHomeHero() {
                 my="xl"
                 pos="relative"
                 w={{ base: "100%", lg: "60%" }}
+                visibleFrom="lg"
               >
                 <ThemeIcon variant="subtle" pos="absolute" top={0} left={-50}>
                   <QuotesIcon size={24} weight="fill" color="white" />
@@ -228,7 +229,7 @@ export function SectionHomeHero() {
               </Box>
             </Stack>
 
-            <Group gap="2rem">
+            <Group gap="2rem" visibleFrom="lg">
               <Text c="gray.0" size="xs" fw={700} opacity={0.5}>
                 THE CLASSICS SOCIALS
               </Text>
@@ -250,6 +251,7 @@ export function SectionHomeHero() {
               alignItems: "flex-end",
               justifyContent: "center",
             }}
+            visibleFrom="lg"
           >
             <motion.div
               variants={variantTextAnimate(0)}
@@ -278,14 +280,19 @@ export function SectionHomeHero() {
             }}
           >
             <Stack gap="xl" id="heromain">
-              <Stack>
+              <Stack mt="xl">
                 <motion.div
                   variants={variantTextAnimate(0)}
                   initial="initial"
                   animate="visible"
                 >
-                  <Text ta="right" size="xs" c="gray.0" fw={600}>
-                    FEATURING - WEDDING EVENT
+                  <Text
+                    ta={{ base: "left", lg: "right" }}
+                    size="xs"
+                    c="gray.0"
+                    fw={600}
+                  >
+                    FEATURING - EVENT
                   </Text>
                 </motion.div>
                 <motion.div
@@ -294,8 +301,20 @@ export function SectionHomeHero() {
                   animate="visible"
                 >
                   <Text
+                    visibleFrom="lg"
                     size="3rem"
-                    ta="right"
+                    ta={{ base: "left", lg: "right" }}
+                    className="ke-heading"
+                    c="gray.0"
+                    fw={600}
+                  >
+                    {sectionData[active]?.text?.eventName || ""}
+                  </Text>
+
+                  <Text
+                    hiddenFrom="lg"
+                    size="2rem"
+                    ta={{ base: "left", lg: "right" }}
                     className="ke-heading"
                     c="gray.0"
                     fw={600}
@@ -308,7 +327,13 @@ export function SectionHomeHero() {
                   initial="initial"
                   animate="visible"
                 >
-                  <Text opacity={0.6} ta="right" size="xs" c="gray.0" fw={600}>
+                  <Text
+                    opacity={0.6}
+                    ta={{ base: "left", lg: "right" }}
+                    size="xs"
+                    c="gray.0"
+                    fw={600}
+                  >
                     {String(
                       new Date(sectionData[active]?.text?.eventDate)
                     ).substring(0, 15)}

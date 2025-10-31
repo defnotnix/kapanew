@@ -8,7 +8,6 @@
 
   /* This is the key: tells the browser to "stop snapping" 100px below the top */
 
-
   overscroll-behavior: none;
 }
 

@@ -1,4 +1,6 @@
 import { PageAbout } from "./about";
+import { PageEventProfile } from "./events/profile";
+import { PageEventShowcase } from "./events/showcaase";
 import { PageFAQs } from "./faq";
 import { PageHome } from "./home";
 import { PageServices } from "./services";
@@ -10,4 +12,8 @@ export const PageEvents = {
   Services: PageServices,
   About: PageAbout,
   Home: PageHome,
+  Events: {
+    Showcase: PageEventShowcase,
+    Profile: PageEventProfile,
+  },
 };

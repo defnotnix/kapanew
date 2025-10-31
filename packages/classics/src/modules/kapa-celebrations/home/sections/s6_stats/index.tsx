@@ -73,7 +73,7 @@ export function SectionHomeStats() {
                 <Paper
                   p="xl"
                   pt="3rem"
-                  h={350}
+                  h={{ base: 200, lg: 350 }}
                   bg="#ffffff33"
                   style={{
                     backdropFilter: "blur(10px)",
@@ -110,7 +110,7 @@ export function SectionHomeStats() {
                 <Paper
                   p="xl"
                   pt="3rem"
-                  h={350}
+                  h={{ base: 200, lg: 350 }}
                   bg="#ffffff33"
                   style={{
                     backdropFilter: "blur(10px)",
@@ -148,7 +148,7 @@ export function SectionHomeStats() {
                 <Paper
                   p="xl"
                   pt="3rem"
-                  h={350}
+                  h={{ base: 200, lg: 350 }}
                   bg="#ffffff33"
                   style={{
                     backdropFilter: "blur(10px)",

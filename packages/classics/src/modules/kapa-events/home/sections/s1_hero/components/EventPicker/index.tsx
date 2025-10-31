@@ -24,7 +24,11 @@ export function EventPicker({ data, onSlideChange }: any) {
             pb={16}
             className={classes.eventcard}
           >
-            <Image src={item.image} h={200} w={150} />
+            <Image
+              src={item.image}
+              h={{ base: 150, lg: 200 }}
+              w={{ base: 140, lg: 150 }}
+            />
           </Paper>
         );
       })}

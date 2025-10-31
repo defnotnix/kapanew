@@ -51,7 +51,7 @@ export function LayoutEvents({ children }: { children: ReactNode }) {
       <body
         style={{
           transition: ".3s ease-in-out",
-          background: "var(--ke-color-100)",
+          background: "#deeefb",
         }}
       >
         <LayoutEventsClient>{children}</LayoutEventsClient>

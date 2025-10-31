@@ -9,7 +9,7 @@ export function MotionProjectFlower({ animate, color }: any) {
     animate: { pathLength: 1 },
   };
 
-  const animateProps = {
+  const animateProps: any = {
     variants: variants,
     initial: "initial",
     animate: animate ? "animate" : "",

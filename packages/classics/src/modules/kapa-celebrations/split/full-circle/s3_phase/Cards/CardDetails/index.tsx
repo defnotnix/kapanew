@@ -14,8 +14,6 @@ import {
 
 import imgLogo from "@/public/img/logo/classics.svg";
 
-import { MotionLilyLeaf } from "@/public/svg/leaf";
-
 export function CardDetails({ data }: { data: any }) {
   return (
     <Paper
@@ -35,27 +33,20 @@ export function CardDetails({ data }: { data: any }) {
       </Text>
 
       <div>
-        <Image
-          h={350}
-          style={{
-            objectFit: "contain",
-          }}
-          src={data?.image}
-        />
-
         <Text
           mt="sm"
           ta="center"
           size="sm"
+          className="kc-heading"
           style={{
-            fontFamily: "var(--font-cursive)",
+            fontFamily: "var(--kc-font-heading)",
           }}
         >
           <i>{data?.text?.subquote}</i>
         </Text>
       </div>
 
-      <Text ta="center" fw={600} size="sm" c="var(--kc-color-700)">
+      <Text ta="center" fw={600} size="ld" c="var(--kc-color-700)">
         {data?.text?.actions}
       </Text>
     </Paper>

@@ -21,7 +21,7 @@ import {
   variantTextAnimate,
 } from "@classics/ui";
 import { useQuery } from "@tanstack/react-query";
-import { getData } from "./page.api";
+import { getCMS as getData } from "./page.api";
 
 //motion
 import { motion } from "motion/react";
@@ -33,8 +33,12 @@ export function PageServices() {
     queryKey: ["events", "events"],
     queryFn: async () => {
       const res: any = await getData();
-      console.log(res);
-      return res;
+
+      console.log("DATAA", res);
+
+      return res.filter((e: any) => {
+        return e.holder == "ke-events-group";
+      });
     },
     initialData: [],
   });

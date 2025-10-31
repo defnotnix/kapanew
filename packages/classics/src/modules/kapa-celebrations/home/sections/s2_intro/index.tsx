@@ -15,6 +15,12 @@ export function SectionHomeIntro() {
     (item: any) => item.holder == "kc-home-intro"
   );
 
+  if(!sectionData){
+    return(
+      <></>
+    )
+  }
+
   return (
     <section
       className={classes.root}
@@ -25,7 +31,7 @@ export function SectionHomeIntro() {
       <Container
         size="md"
         py={{
-          base: 100,
+          base: 200,
           lg: 160,
         }}
       >

@@ -13,11 +13,14 @@ import { SectionHomeStats } from "./sections/s6_stats";
 import { SectionHomeInstagram } from "./sections/s7_instagram";
 
 import styles from "./PageHome.module.css";
+import { SectionContact } from "../../../components/Contact";
+import { Footer } from "../../../components/Footer";
+import { Center, Loader } from "@mantine/core";
 
 export function PageHome() {
   const { dispatch } = usePageContext();
 
-  useQuery({
+  const { isFetching } = useQuery({
     queryKey: ["celebrations", "home"],
     queryFn: async () => {
       const [cms, serviceCategory, events] = await Promise.all([
@@ -34,6 +37,20 @@ export function PageHome() {
     },
     initialData: false,
   });
+
+  if (isFetching) {
+    return (
+      <section>
+        <Center
+          style={{
+            height: "100vh",
+          }}
+        >
+          <Loader type="dots" color="var(--kc-color-600)" />
+        </Center>
+      </section>
+    );
+  }
 
   return (
     <>
@@ -58,6 +75,10 @@ export function PageHome() {
         </section>
         <section className={styles.snapSection}>
           <SectionHomeInstagram />
+        </section>
+        <section className={styles.snapSection}>
+          <SectionContact />
+          <Footer />
         </section>
       </main>
     </>

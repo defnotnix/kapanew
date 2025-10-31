@@ -33,7 +33,7 @@ export function PageEventProfile() {
   const Params: any = useParams();
   const { state, dispatch } = usePageContext();
 
-  const { data, isFetching } = useQuery({
+  const { data, isFetching }: any = useQuery({
     queryKey: ["events", "profile"],
     queryFn: async () => {
       const res = await getData(Params.id);
