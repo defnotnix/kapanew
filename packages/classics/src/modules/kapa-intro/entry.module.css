@@ -51,9 +51,7 @@
   display: flex;
   justify-content: center;
 
-  @media (min-width: em(750px)) {
-    padding-top: 200px;
-  }
+  
 }
 
 .loaderCircle {

@@ -168,7 +168,7 @@ export function PageEventShowcase() {
       className={classes.root}
       style={{
         transition: ".5s ease-in-out",
-        background: `${data[active]?.color || "#000"}`,
+        // background: `${data[active]?.color || "#000"}`,
         position: "relative",
         overflow: "hidden",
       }}
@@ -243,7 +243,7 @@ export function PageEventShowcase() {
                 maw={400}
                 className="ke-heading"
                 fw={700}
-                c={data[active]?.text || "var(--ke-color-50)"}
+                c={"var(--ke-color-50)"}
                 style={{
                   fontSize: "4rem !important",
                 }}

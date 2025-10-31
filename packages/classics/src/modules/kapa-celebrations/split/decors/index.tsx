@@ -12,9 +12,11 @@ import { getCMS } from "./page.api";
 import { useQuery } from "@tanstack/react-query";
 import {
   Box,
+  Button,
   Container,
   Divider,
   Grid,
+  Group,
   Paper,
   SimpleGrid,
   Stack,
@@ -22,12 +24,16 @@ import {
   Text,
 } from "@mantine/core";
 import { motion } from "motion/react";
-import { SectionHomePhase } from "./s3_phase";
+
+import { ArrowRightIcon } from "@phosphor-icons/react";
+import { useRouter } from "next/navigation";
 
 export function PageSplitDecors() {
   // * CONTEXT
 
   const { dispatch } = usePageContext();
+
+  const Router = useRouter();
 
   // * PRELOADING
 
@@ -37,7 +43,7 @@ export function PageSplitDecors() {
       const dataCMS = await getCMS();
 
       setTimeout(() => {
-      dispatch({
+        dispatch({
           type: "SET_PRE_DATA",
           payload: {
             cms: dataCMS,
@@ -58,6 +64,20 @@ export function PageSplitDecors() {
         <PageHeaderOverlay />
 
         <Container py={100}>
+          <Group justify="flex-end" px="xs" visibleFrom="lg">
+            <Button
+              variant="light"
+              size="xs"
+              rightSection={<ArrowRightIcon />}
+              color="var(--kc-color-600)"
+              onClick={() => {
+                Router.push("/kapa-celebrations/split/full-circle");
+              }}
+            >
+              Explore Full Circle by Kapa.
+            </Button>
+          </Group>
+
           <Box py={{ base: 32, lg: 50 }}>
             <Stack gap="xs">
               <motion.div

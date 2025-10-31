@@ -315,14 +315,18 @@ export function PageEntry() {
   return (
     <section className={classes.root}>
       <motion.section ref={overlayRef} className={classes.animationOverlay}>
+
+
+
         <Box
-          mt={{ base: "calc(40vh - 80px)", lg: -12 }}
+          mt={{ base: 0, lg: -12 }}
           style={{
             zIndex: 10,
             top: 0,
             height: "100vh",
             paddingTop: 430,
           }}
+          visibleFrom="lg"
         >
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
             <AnimatePresence>

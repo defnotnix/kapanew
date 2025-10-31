@@ -41,7 +41,7 @@ export function SectionCelebrationsAboutShowcase() {
           h="100%"
           top={0}
           left={0}
-          src={sectionData.src}
+          src={sectionData?.image}
         />
 
         <Container size="xs" pt={300} pos="relative">

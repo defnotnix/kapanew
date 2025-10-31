@@ -9,8 +9,8 @@ import { useHover } from "@mantine/hooks";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-//import imgCelebration from "../../../../../assets/events/celebrations/NoraJoshua/21.jpg";
-//import imgFulLCircle from "../../../../../assets/events/celebrations/SubhecchaArjun/26.jpg";
+import imgCelebration from "../../../../../assets/images/events/3.jpg";
+import imgFulLCircle from "../../../../../assets/images/events/26.jpg";
 
 export function SectionHomePhase() {
   const Router = useRouter();
@@ -45,9 +45,9 @@ export function SectionHomePhase() {
               left: 0,
               width: "100%",
               height: "100%",
-              // backgroundImage: `url(${
-              //   hovered === 1 ? imgCelebration.src : imgFulLCircle.src
-              // })`,
+              backgroundImage: `url(${
+                hovered === 1 ? imgCelebration.src : imgFulLCircle.src
+              })`,
               backgroundSize: "cover",
               backgroundPosition: "center",
             }}
@@ -64,12 +64,21 @@ export function SectionHomePhase() {
         initial="initial"
         animate="visible"
         style={{
+          zIndex: 5,
           position: "absolute",
           top: 100,
           width: "100%",
         }}
       >
-        <Text size="xs" fw={600} ta="center" c="var(--kc-color-900)">
+        <Text
+          size="xs"
+          fw={600}
+          ta="center"
+          c={hovered ? "var(--kc-color-50)" : "var(--kc-color-800)"}
+          style={{
+            transition: ".2s ease-in-out",
+          }}
+        >
           SPLITS BY KAPA
         </Text>
       </motion.div>
@@ -79,12 +88,21 @@ export function SectionHomePhase() {
         initial="initial"
         animate="visible"
         style={{
+          zIndex: 5,
           position: "absolute",
           bottom: 100,
           width: "100%",
         }}
       >
-        <Text size="xs" fw={600} ta="center" c="var(--kc-color-900)">
+        <Text
+          size="xs"
+          fw={600}
+          ta="center"
+          c={hovered ? "var(--kc-color-50)" : "var(--kc-color-800)"}
+          style={{
+            transition: ".2s ease-in-out",
+          }}
+        >
           HOVER ON ANY SIDE
         </Text>
       </motion.div>
