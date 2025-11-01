@@ -117,6 +117,8 @@ export function SectionHomeHero() {
           className={classes.media_background}
           style={{
             backgroundImage: `url(${sectionData[active]?.image})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
           }}
         />
       </div>
