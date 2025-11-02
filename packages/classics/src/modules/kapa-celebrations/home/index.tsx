@@ -54,35 +54,45 @@ export function PageHome() {
 
   return (
     <>
-      <main data-snap-root className={styles.snapContainer}>
+      <SectionHomeHero />
+      <SectionHomeIntro />
+      <SectionHomePhase />
+      <SectionHomeServices />
+      <SectionHomeFeatured />
+      <SectionHomeStats />
+      <SectionHomeInstagram />
+      <SectionContact />
+      <Footer />
+
+      {/* <main data-snap-root className={styles.snapContainer}>
         <section className={styles.snapSection} data-hero>
-          <SectionHomeHero />
+         
         </section>
         <section className={styles.snapSection}>
-          <SectionHomeIntro />
+        
         </section>
         <section className={styles.snapSection}>
-          <SectionHomePhase />
+        
         </section>
         <section className={styles.snapSection}>
-          <SectionHomeServices />
+        
         </section>
         <section className={styles.snapSection}>
-          <SectionHomeFeatured />
+        
         </section>
         <section className={styles.snapSection}>
-          <SectionHomeStats />
+         
         </section>
         <section className={styles.snapSection}>
-          <SectionHomeInstagram />
+         
         </section>
         <section className={styles.snapSection}>
-          <SectionContact />
+         
         </section>
         <section className={styles.snapSection}>
-          <Footer />
+         
         </section>
-      </main>
+      </main> */}
     </>
   );
 }
