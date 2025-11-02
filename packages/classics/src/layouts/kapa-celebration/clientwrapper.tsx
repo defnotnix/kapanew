@@ -17,8 +17,11 @@ import { images } from "../../assets";
 import imgJankuFeatured from "../../assets/events/janku/feature.jpg";
 import { Footer } from "../../components/Footer";
 import { SectionContact } from "../../components/Contact";
+import { usePathname } from "next/navigation";
 
 export function ClientWrapper({ children }: PropsWithChildren) {
+  const Pathname = usePathname();
+
   return (
     <ContextPageProvider>
       {/* <LoadingOverlay /> */}

@@ -6,6 +6,7 @@
   z-index: 10;
 
   border-bottom: 1px solid rgba(150, 150, 150, 0.3);
+  backdrop-filter: blur(16px);
 }
 
 .fixedHeader {

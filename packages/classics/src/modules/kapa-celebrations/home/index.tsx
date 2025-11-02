@@ -54,8 +54,8 @@ export function PageHome() {
 
   return (
     <>
-      <main className={styles.snapContainer}>
-        <section className={styles.snapSection}>
+      <main data-snap-root className={styles.snapContainer}>
+        <section className={styles.snapSection} data-hero>
           <SectionHomeHero />
         </section>
         <section className={styles.snapSection}>
@@ -78,6 +78,8 @@ export function PageHome() {
         </section>
         <section className={styles.snapSection}>
           <SectionContact />
+        </section>
+        <section className={styles.snapSection}>
           <Footer />
         </section>
       </main>

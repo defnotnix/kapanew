@@ -98,15 +98,7 @@ export function SectionHomeHero() {
 
   if (!sectionData) {
     return (
-      <section>
-        <Center
-          style={{
-            height: "100vh",
-          }}
-        >
-          <Loader type="dots" color="var(--kc-color-600)" />
-        </Center>
-      </section>
+     <></>
     );
   }
 
