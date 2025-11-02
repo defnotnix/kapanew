@@ -1,15 +1,27 @@
 "use client";
 
 import {
-  Burger, Button, Container, Grid, Group, Image, Text, ThemeIcon, UnstyledButton,
+  ActionIcon,
+  Burger,
+  Button,
+  Container,
+  Grid,
+  Group,
+  Image,
+  Text,
+  ThemeIcon,
+  UnstyledButton,
 } from "@mantine/core";
-import { motion, useScroll, useMotionValueEvent } from "motion/react";
+import { useWindowScroll } from "@mantine/hooks";
+import { motion } from "motion/react";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useMemo, useRef, useState } from "react";
-import classes from "./header.module.css";
-import { MailboxIcon, PhoneIcon, HandWavingIcon } from "@phosphor-icons/react";
 
-const NAV_HEIGHT = 100; // px — match your CSS scroll-padding-top
+// Styles
+import classes from "./header.module.css";
+
+// Assets & Icons
+
+import { MailboxIcon, PhoneIcon, HandWavingIcon } from "@phosphor-icons/react";
 
 export function Header({
   context,
@@ -22,74 +34,15 @@ export function Header({
   absolute,
 }: any) {
   const revertStyleUrl: any = [baseUrl, ...revertStyleUrls];
+
   const router = useRouter();
   const pathname: any = usePathname();
+
   const { state, dispatch } = context();
 
-  const [heroOut, setHeroOut] = useState(false);
-  const snapRootRef = useRef<HTMLElement | null>(null);
-  const heroRef = useRef<HTMLElement | null>(null);
+  const [scroll] = useWindowScroll();
 
-  // Mount: resolve elements once client-side DOM is ready
-  useEffect(() => {
-    snapRootRef.current = document.querySelector<HTMLElement>("[data-snap-root]");
-    heroRef.current = document.querySelector<HTMLElement>("[data-hero]");
-  }, []);
-
-  // IntersectionObserver on the hero, with the snap container as the root
-  useEffect(() => {
-    const root = snapRootRef.current;
-    const hero = heroRef.current;
-    if (!root || !hero) return;
-
-    let io: IntersectionObserver | null = null;
-
-    try {
-      io = new IntersectionObserver(
-        ([entry]) => {
-          // "Out" when the hero is mostly gone OR fully hidden
-          setHeroOut(entry.intersectionRatio < 0.1);
-        },
-        {
-          root,                  // <== observe within the snap container
-          threshold: [0, 0.1, 1],
-          // Account for the fixed header height so the trigger happens when content clears it:
-          rootMargin: `-${NAV_HEIGHT}px 0px 0px 0px`,
-        }
-      );
-      io.observe(hero);
-    } catch (e) {
-      // Fallback handled below
-    }
-
-    return () => io?.disconnect();
-  }, []);
-
-  // Fallback: listen to the container's scrollTop if IO didn't toggle (or in weird browsers)
-  useEffect(() => {
-    const root = snapRootRef.current;
-    if (!root) return;
-
-    const handler = () => {
-      // Trigger once we've scrolled past the hero height minus header height
-      const heroHeight = heroRef.current?.offsetHeight ?? root.clientHeight;
-      const threshold = Math.max(0, heroHeight - NAV_HEIGHT * 0.9);
-      setHeroOut(root.scrollTop >= threshold);
-    };
-
-    // If IO never fires, this ensures it still works
-    root.addEventListener("scroll", handler, { passive: true });
-    // Run once to set initial state
-    handler();
-
-    return () => root.removeEventListener("scroll", handler);
-  }, []);
-
-  // Also open the fixed header when the mobile nav is opened
-  const navActive = useMemo(
-    () => heroOut || Boolean(state?.navStatus),
-    [heroOut, state?.navStatus]
-  );
+  const navActive = scroll?.y > 300 || state?.navStatus;
 
   const NavContent = ({ overrule }: { overrule?: boolean }) => (
     <Container>
@@ -127,7 +80,6 @@ export function Header({
             >
               *
             </Text>
-
             <Text
               w={250}
               visibleFrom="lg"
@@ -153,7 +105,10 @@ export function Header({
                 variant="subtle"
                 color="dark"
                 size="sm"
-                style={{ fontSize: "var(--mantine-font-size-xs)", fontWeight: 900 }}
+                style={{
+                  fontSize: "var(--mantine-font-size-xs)",
+                  fontWeight: 900,
+                }}
                 leftSection={<PhoneIcon weight="fill" />}
                 component="a"
                 href="tel:+97798121231223"
@@ -170,7 +125,10 @@ export function Header({
                 variant="subtle"
                 color="dark"
                 size="sm"
-                style={{ fontSize: "var(--mantine-font-size-xs)", fontWeight: 900 }}
+                style={{
+                  fontSize: "var(--mantine-font-size-xs)",
+                  fontWeight: 900,
+                }}
                 leftSection={<MailboxIcon weight="fill" />}
                 component="a"
                 href="mailto:hello@classicsprojects.com.np"
@@ -197,15 +155,17 @@ export function Header({
                 Get in touch
               </Button>
             </a>
-
-            <ThemeIcon size={36} variant="light" color="gray">
+            <ThemeIcon size={36} variant="light" color={`gray`}>
               <Burger
                 lineSize={2}
                 size={14}
                 opened={state?.navStatus}
-                onClick={() =>
-                  dispatch({ type: "SET_NAV_STATUS", payload: !state?.navStatus })
-                }
+                onClick={() => {
+                  dispatch({
+                    type: "SET_NAV_STATUS",
+                    payload: !state?.navStatus,
+                  });
+                }}
                 aria-label="Toggle navigation menu"
                 color={
                   revertStyleUrl.includes(pathname) && !overrule
@@ -222,32 +182,17 @@ export function Header({
 
   return (
     <>
-      {/* Top header over the hero */}
-      <motion.header
-        className={classes.header}
-        style={
-          absolute
-            ? { position: "absolute", top: 0, left: 0, right: 0, width: "100%" }
-            : {}
-        }
-      >
+      <motion.header className={classes.header}>
         <NavContent />
       </motion.header>
 
-      {/* Fixed header that slides in after hero */}
       <motion.header
         className={classes.fixedHeader}
         style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          zIndex: 50,
-          background: type === "kc" ? "#f8d0d1aa" : "#bae1fdaa",
-          backdropFilter: "blur(8px)",
+          background: type == "kc" ? "#f8d0d1aa" : "#bae1fdaa",
         }}
-        initial={{ y: -100 }}
-        animate={navActive ? { y: 0 } : { y: -100 }}
+        initial={{ top: -100 }}
+        animate={navActive ? { top: 0 } : {}}
         transition={{ duration: 0.3, ease: "easeOut" }}
       >
         <NavContent overrule />
