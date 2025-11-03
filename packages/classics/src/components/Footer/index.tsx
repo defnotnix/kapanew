@@ -2,7 +2,7 @@
 
 import React from "react";
 // next
-import {} from "next/navigation";
+import { useRouter } from "next/navigation";
 // mantine
 import {
   Anchor,
@@ -23,6 +23,7 @@ import classes from "./footer.module.css";
 // ✅ use the same motion lib you used in the new Header
 import { motion } from "framer-motion";
 import { variantTextAnimate } from "../../animation";
+import { Router } from "next/dist/client/router";
 
 const paperElementConfig = {
   radius: 0,
@@ -76,6 +77,8 @@ function AnimatedText({
 }
 
 export function Footer() {
+  const Router = useRouter();
+
   return (
     <>
       <Container py={{ base: 0, lg: 64 }} px={{ base: 0 }}>
@@ -259,11 +262,30 @@ export function Footer() {
                           Sitemap
                         </Text>
                         <Stack gap="4px">
-                          <Anchor c="gray.0">Classics Home</Anchor>
-                          <Anchor c="gray.0">About Us</Anchor>
-                          <Anchor c="gray.0">Works</Anchor>
-                          <Anchor c="gray.0">Contact</Anchor>
-                          <Anchor c="gray.0">Team</Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations");
+                            }}
+                          >
+                            Classics Home
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations/about");
+                            }}
+                          >
+                            About Us
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations/events/showcase");
+                            }}
+                          >
+                            Works
+                          </Anchor>
                         </Stack>
                       </Box>
                     </motion.div>
@@ -489,6 +511,8 @@ export function Footer() {
 }
 
 export function FooterEvents() {
+  const Router = useRouter();
+
   return (
     <>
       <Container py={{ base: 0, lg: 64 }} px={{ base: 0 }}>
@@ -672,11 +696,36 @@ export function FooterEvents() {
                           Sitemap
                         </Text>
                         <Stack gap="4px">
-                          <Anchor c="gray.0">Classics Home</Anchor>
-                          <Anchor c="gray.0">About Us</Anchor>
-                          <Anchor c="gray.0">Works</Anchor>
-                          <Anchor c="gray.0">Contact</Anchor>
-                          <Anchor c="gray.0">Team</Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-events");
+                            }}
+                          ></Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-events/about");
+                            }}
+                          >
+                            About Us
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-events/events/showcase");
+                            }}
+                          >
+                            Works
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-events/services");
+                            }}
+                          >
+                            Services
+                          </Anchor>
                         </Stack>
                       </Box>
                     </motion.div>
