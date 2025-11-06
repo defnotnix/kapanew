@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 
 export function MotionHeroFlower() {
-  const strokeColor = "#2A4389";
-  const strokeWidth = 20;
+  const strokeColor = "var(--kc-color-600)";
+  const strokeWidth = 12;
 
   const animateProps: any = {
     initial: { pathLength: 0 },

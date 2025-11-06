@@ -31,7 +31,7 @@ import { _MotionIntroFlower } from "./motion/intro.flower";
 import { MotionCorporateLine } from "./motion/corporate.line";
 import { images } from "../../assets";
 
-const branches = [
+export const branches = [
   {
     id: 1,
     label: "Celebrations",
@@ -315,9 +315,6 @@ export function PageEntry() {
   return (
     <section className={classes.root}>
       <motion.section ref={overlayRef} className={classes.animationOverlay}>
-
-
-
         <Box
           mt={{ base: 0, lg: -12 }}
           style={{

@@ -16,6 +16,7 @@ import styles from "./PageHome.module.css";
 import { SectionContact } from "../../../components/Contact";
 import { Footer } from "../../../components/Footer";
 import { Center, Loader } from "@mantine/core";
+import { SectionHomeStress } from "./sections/s5.5_stress";
 
 export function PageHome() {
   const { dispatch } = usePageContext();
@@ -59,6 +60,7 @@ export function PageHome() {
       <SectionHomePhase />
       <SectionHomeServices />
       <SectionHomeFeatured />
+      <SectionHomeStress />
       <SectionHomeStats />
       <SectionHomeInstagram />
       {/* <SectionContact /> */}

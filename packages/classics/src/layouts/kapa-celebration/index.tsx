@@ -8,6 +8,7 @@ import { LayoutCelebrationsClient } from "./layout";
 // Global & vendor styles MUST be imported in a server layout
 import "@mantine/carousel/styles.css";
 import "@mantine/core/styles.css";
+import "@mantine/dates/styles.css";
 
 // Personal Style
 import "../../styles/celebrations.css";

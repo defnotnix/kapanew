@@ -59,6 +59,7 @@ export function SectionHomeStats() {
                       color: "var(--mantine-color-gray-0)",
                       fontSize: "3rem",
                       lineHeight: "3.5rem",
+                      marginTop: "3rem",
                     }}
                   >
                     Number
@@ -73,7 +74,6 @@ export function SectionHomeStats() {
                 <Paper
                   p="xl"
                   pt="3rem"
-                  h={{ base: 200, lg: 350 }}
                   bg="#ffffff33"
                   style={{
                     backdropFilter: "blur(10px)",
@@ -95,7 +95,7 @@ export function SectionHomeStats() {
                         fontSize: "6rem!important",
                       }}
                     >
-                      399
+                      404
                     </div>
                   </motion.div>
 
@@ -110,7 +110,6 @@ export function SectionHomeStats() {
                 <Paper
                   p="xl"
                   pt="3rem"
-                  h={{ base: 200, lg: 350 }}
                   bg="#ffffff33"
                   style={{
                     backdropFilter: "blur(10px)",
@@ -132,7 +131,14 @@ export function SectionHomeStats() {
                         fontSize: "6rem!important",
                       }}
                     >
-                      99%
+                      4.6
+                      <span
+                        style={{
+                          fontSize: "var(--mantine-font-size-sm)",
+                        }}
+                      >
+                        of 5
+                      </span>
                     </div>
                   </motion.div>
 
@@ -148,7 +154,6 @@ export function SectionHomeStats() {
                 <Paper
                   p="xl"
                   pt="3rem"
-                  h={{ base: 200, lg: 350 }}
                   bg="#ffffff33"
                   style={{
                     backdropFilter: "blur(10px)",
@@ -177,8 +182,8 @@ export function SectionHomeStats() {
                   <div>
                     <Divider mb="sm" opacity={0.5} />
                     <Text size="md" c="gray.0" fw={600}>
-                      Stress
-                      <br /> Relieved.
+                      Recommendation
+                      <br /> Level
                     </Text>
                   </div>
                 </Paper>

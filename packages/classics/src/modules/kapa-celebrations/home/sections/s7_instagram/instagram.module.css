@@ -3,6 +3,8 @@
 
   top: 20rem;
   left: 80.5%;
+
+  stroke: var(--kc-color-600);
 }
 
 .flower_content_bot {
@@ -11,4 +13,6 @@
   bottom: -50rem;
   right: 90.5%;
   transform: rotate(180deg);
+
+  stroke: var(--kc-color-600);
 }

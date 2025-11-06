@@ -277,7 +277,7 @@ export function SectionHomeInstagram({
           animate="visible"
         >
           <Text size="sm" tt="uppercase" fw={600}>
-            SOCIALS
+            KAPA SOCIALS
           </Text>
         </motion.div>
         <Grid my="xl" gutter="xl">
@@ -299,10 +299,10 @@ export function SectionHomeInstagram({
               initial="initial"
               animate="visible"
             >
-              <Text size="sm" opacity={0.5}>
+              {/* <Text size="sm" opacity={0.5}>
                 Follow us as we bring your dream celebrations to life, filled
                 with magic, joy, and unforgettable moments.
-              </Text>
+              </Text> */}
             </motion.div>
           </Grid.Col>
         </Grid>

@@ -10,6 +10,7 @@ import {
   Container,
   Grid,
   Group,
+  Image,
   Paper,
   SimpleGrid,
   Space,
@@ -24,6 +25,7 @@ import classes from "./footer.module.css";
 import { motion } from "framer-motion";
 import { variantTextAnimate } from "../../animation";
 import { Router } from "next/dist/client/router";
+import { branches } from "../../modules";
 
 const paperElementConfig = {
   radius: 0,
@@ -83,6 +85,7 @@ export function Footer() {
     <>
       <Container py={{ base: 0, lg: 64 }} px={{ base: 0 }}>
         <Paper
+          pos="relative"
           pb={{ base: 32, lg: 0 }}
           radius={0}
           bg="var(--kc-color-700)"
@@ -92,6 +95,10 @@ export function Footer() {
             flexDirection: "column",
           }}
         >
+          <Group pos="absolute" top={0} right={0}>
+            <Text size="xl">we create, you celebrate.</Text>
+          </Group>
+
           <Box>
             <Grid gutter={0}>
               <Grid.Col span={1}>
@@ -183,7 +190,7 @@ export function Footer() {
               </Grid.Col>
             </Grid>
 
-            <Container size="xl">
+            <Container size="xl" pos="relative">
               <Grid gutter={0}>
                 <Grid.Col span={{ base: 12, lg: 8 }}>
                   <Box visibleFrom="lg">
@@ -203,11 +210,8 @@ export function Footer() {
                         fw={700}
                         c="gray.0"
                       >
-                        We transform corporate, social
-                        <br />
-                        and public events into
-                        <br />
-                        unforgettable experiences.
+                        With you, for
+                        <br /> your Celebration & Memories
                       </Text>
                     </motion.div>
                   </Box>
@@ -268,7 +272,15 @@ export function Footer() {
                               Router.push("/kapa-celebrations");
                             }}
                           >
-                            Classics Home
+                            KaPa Home
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations");
+                            }}
+                          >
+                            KaPa Celebrations
                           </Anchor>
                           <Anchor
                             c="gray.0"
@@ -285,6 +297,38 @@ export function Footer() {
                             }}
                           >
                             Works
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations/events/showcase");
+                            }}
+                          >
+                            Decor by KaPa
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations/events/showcase");
+                            }}
+                          >
+                            Full-Circle by KaPa
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations/events/showcase");
+                            }}
+                          >
+                            Testimonials
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              Router.push("/kapa-celebrations/events/showcase");
+                            }}
+                          >
+                            FAQs
                           </Anchor>
                         </Stack>
                       </Box>
@@ -496,9 +540,18 @@ export function Footer() {
               <Grid.Col span={4} visibleFrom="lg">
                 <Paper h={80} {...paperElementConfig}>
                   <motion.div {...animProps(0)}>
-                    <Group h={80} justify="flex-end" align="flex-end" pr="3rem">
-                      <Text size="xl">we create, you celebrate.</Text>
-                    </Group>
+                    <SimpleGrid cols={4} p="xl">
+                      {branches.map((item: any, index: number) => {
+                        return (
+                          <Image
+                            key={index}
+                            src={item.image}
+                            h={50}
+                            fit="contain"
+                          />
+                        );
+                      })}
+                    </SimpleGrid>
                   </motion.div>
                 </Paper>
               </Grid.Col>

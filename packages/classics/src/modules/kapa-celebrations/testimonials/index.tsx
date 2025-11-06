@@ -33,6 +33,53 @@ import classes from "./page.module.css";
 import { QuotesIcon } from "@phosphor-icons/react";
 import { images } from "../../../assets";
 
+export function TestimonialCard({
+  item,
+  delay = 0,
+}: {
+  item: any;
+  delay?: number;
+}) {
+  return (
+    <motion.div
+      variants={variantGeneralDelay(delay)}
+      initial="initial"
+      whileInView="visible"
+      viewport={{ once: true }}
+    >
+      <Paper
+        className={classes.testimonial_paper}
+        radius="md"
+        // style={{
+        //   transform: `rotate(-${Math.random() * 3}deg)`,
+        // }}
+      >
+        <Paper p="xl">
+          <Stack>
+            <QuotesIcon color="var(--kc-color-400)" weight="fill" size={24} />
+
+            <Text size="sm" fw={600}>
+              {item.message}
+            </Text>
+          </Stack>
+        </Paper>
+
+        <Group wrap="nowrap" p="md">
+          <Avatar name={item.name} color="initials" />
+          <div>
+            <Text size="xs" fw={600}>
+              {item.name}
+            </Text>
+            <Text size="10px" opacity={0.5}>
+              {item.year || "20XX"} | {item.venue || "Organized by KaPa"}
+            </Text>
+          </div>
+        </Group>
+      </Paper>
+    </motion.div>
+  );
+}
+
 export function PageTestimonials() {
   const { dispatch } = usePageContext();
 
@@ -57,47 +104,6 @@ export function PageTestimonials() {
   const chunkedData = chunk(data, Math.ceil(data?.length / COLUMN_COUNT));
 
   // * COMPONENTS
-
-  function TestimonialCard({ item, delay = 0 }: { item: any; delay?: number }) {
-    return (
-      <motion.div
-        variants={variantGeneralDelay(delay)}
-        initial="initial"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
-        <Paper
-          className={classes.testimonial_paper}
-          radius="md"
-          // style={{
-          //   transform: `rotate(-${Math.random() * 3}deg)`,
-          // }}
-        >
-          <Paper p="xl">
-            <Stack>
-              <QuotesIcon color="var(--kc-color-400)" weight="fill" size={24} />
-
-              <Text size="sm" fw={600}>
-                {item.message}
-              </Text>
-            </Stack>
-          </Paper>
-
-          <Group wrap="nowrap" p="md">
-            <Avatar name={item.name} color="initials" />
-            <div>
-              <Text size="xs" fw={600}>
-                {item.name}
-              </Text>
-              <Text size="10px" opacity={0.5}>
-                {item.year || "20XX"} | {item.venue || "Organized by KaPa"}
-              </Text>
-            </div>
-          </Group>
-        </Paper>
-      </motion.div>
-    );
-  }
 
   return (
     <section className="pos_relative">

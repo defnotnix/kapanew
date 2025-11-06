@@ -11,6 +11,7 @@ import {
   Grid,
   Group,
   Paper,
+  Select,
   SimpleGrid,
   Space,
   Stack,
@@ -215,7 +216,7 @@ export function SectionContact() {
 
             <Paper
               p="xl"
-              pb={"xl"}
+              pt="4rem"
               withBorder
               bg="linear-gradient(180deg, var(--kc-color-100) 0%, var(--kc-color-200) 80%)"
               w={{
@@ -227,26 +228,29 @@ export function SectionContact() {
               }}
               radius="xl"
             >
-              <Text size="3rem" opacity={0.5} visibleFrom="lg">
+              <Text
+                ml="xl"
+                size="3rem"
+                opacity={0.5}
+                visibleFrom="lg"
+                style={{
+                  fontFamily: "var(--kc-font-heading)",
+                }}
+              >
                 Ready to host
                 <br /> your next big <br /> event ?
               </Text>
 
-              <Text size="2rem" opacity={0.5} hiddenFrom="lg">
+              <Text
+                size="2rem"
+                opacity={0.5}
+                hiddenFrom="lg"
+                style={{
+                  fontFamily: "var(--kc-font-heading)",
+                }}
+              >
                 Ready to host
                 <br /> your next big <br /> event ?
-              </Text>
-
-              <Group justify="flex-end" mt={-24} visibleFrom="lg">
-                <Text size="xs" w={300} fw={600}>
-                  We create memorable events that leave a lasting impact,
-                  ensuring every attendee walks away with a positive impression.
-                </Text>
-              </Group>
-
-              <Text size="xs" hiddenFrom="lg" fw={600}>
-                We create memorable events that leave a lasting impact, ensuring
-                every attendee walks away with a positive impression.
               </Text>
 
               <Space h={50} hiddenFrom="lg" />
@@ -323,25 +327,23 @@ export function SectionContact() {
             >
               <Group h={130}>
                 <Box>
-                  <Text mb="sm" size="xs">
+                  <Text mb="md" size="xs" fw={600}>
                     Jump in a call with us
                   </Text>
-                  <Button size="lg" radius="lg" color="var(--kc-color-500)">
-                    +977-9812341231
+                  <Button size="lg" radius="lg" color="var(--kc-color-600)">
+                    <Text size="sm">+977 9801464626/ 9801464627</Text>
                   </Button>
                 </Box>
                 <Box>
-                  <Text mb="sm" size="xs">
+                  <Text mb="md" size="xs" fw={600}>
                     Or contact us via
                   </Text>
                   <Group gap="4px" ref={ref}>
-                    <ActionIcon size="52px" w={64} radius="lg" color="green.5">
+                    <ActionIcon size="52px" w={64} radius="lg" color="teal.6">
                       <WhatsappLogo size={24} weight="fill" />
                     </ActionIcon>
-                    <ActionIcon size="52px" w={64} radius="lg" color="blue.5">
-                      <MessengerLogo size={24} weight="fill" />
-                    </ActionIcon>
-                    <ActionIcon size="52px" w={64} radius="lg" color="orange.5">
+
+                    <ActionIcon size="52px" w={64} radius="lg" color="orange.7">
                       <InstagramLogo size={24} weight="fill" />
                     </ActionIcon>
                   </Group>
@@ -392,7 +394,21 @@ export function SectionContact() {
                   placeholder="e.g. James Jordan"
                 />
 
-                <TextInput
+                <Select
+                  data={[
+                    "January",
+                    "February",
+                    "March",
+                    "April",
+                    "May",
+                    "June",
+                    "July",
+                    "August",
+                    "September",
+                    "October",
+                    "November",
+                    "December",
+                  ]}
                   size="xl"
                   styles={{
                     input: {
@@ -406,13 +422,16 @@ export function SectionContact() {
                       padding: ".5rem 1rem",
                       fontSize: "var(--mantine-font-size-xs)",
                     },
+                    option: {
+                      fontSize: "var(--mantine-font-size-xs)",
+                    },
                   }}
-                  label="Event Type"
+                  label="Event Month"
                   placeholder="e.g. Wedding"
                 />
 
                 <SimpleGrid cols={{ base: 1, lg: 3 }} spacing="xs">
-                  <DateInput
+                  <TextInput
                     size="xl"
                     styles={{
                       input: {
@@ -427,8 +446,8 @@ export function SectionContact() {
                         fontSize: "var(--mantine-font-size-xs)",
                       },
                     }}
-                    label="Event Date"
-                    placeholder="Pick date"
+                    label="Mobile"
+                    placeholder="+977 98XXXXXXXXX"
                   />
 
                   <TextInput
@@ -446,7 +465,8 @@ export function SectionContact() {
                         fontSize: "var(--mantine-font-size-xs)",
                       },
                     }}
-                    label="Expected Attendees"
+                    label="Email"
+                    placeholder="you@example.com"
                   />
 
                   <ActionIcon
@@ -700,10 +720,10 @@ export function SectionContactEvents() {
                       radius="lg"
                       color="var(--ke-color-900)"
                       style={{
-                        fontSize: "var(--mantine-font-size-sm)",
+                        fontSize: "var(--mantine-font-size-xs)",
                       }}
                     >
-                      +977-9812341231
+                      <Text size="sm">+977 9801464626/ 9801464627</Text>
                     </Button>
                   </Box>
                   <Box>
@@ -711,12 +731,7 @@ export function SectionContactEvents() {
                       Or contact us via
                     </Text>
                     <Group gap="4px" ref={ref}>
-                      <ActionIcon
-                        size="52px"
-                        w={64}
-                        radius="lg"
-                        color="green.5"
-                      >
+                      <ActionIcon size="52px" w={64} radius="lg" color="teal.7">
                         <WhatsappLogo size={24} weight="fill" />
                       </ActionIcon>
                       <ActionIcon size="52px" w={64} radius="lg" color="blue.5">
