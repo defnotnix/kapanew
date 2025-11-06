@@ -36,10 +36,11 @@ export const branches = [
     id: 1,
     label: "Celebrations",
     description: "Celebrations with your loved ones",
-    quote: "For Your Cherished Moments",
+    quote: "With You, For Your Celebration & Memories",
     url: "/kapa-celebrations",
     image: images.logo.celebrations_small,
     background: "var(--kc-color-200)",
+    font: "--kc-font-heading",
 
     hovered: (
       <>
@@ -73,11 +74,12 @@ export const branches = [
     id: 2,
     label: "Events",
     description: "Memorable events to cherish forever",
-    quote: "For Your Public & Corporate Events",
+    quote: "Creative. Convenient. Cohesive.",
     //  url: "/kapa-events",
     image: images.logo.events_small,
     background: "var(--ke-color-200)",
     construction: true,
+    font: "--ke-font-heading",
     hovered: (
       <>
         <div
@@ -184,7 +186,7 @@ export function PageEntry() {
         >
           <div></div>
           <div>
-            <Center mb="xl" mt={"5rem"}>
+            <Center mb="xl" mt={"8rem"}>
               <Image h={100} w={100} src={branchdata.image} />
             </Center>
             <Text size="lg" lh="100%" ta="center" fw={900}>
@@ -219,7 +221,16 @@ export function PageEntry() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 1 + 0.05 * index }}
             >
-              <Text size="sm" ta="center" fw={700}>
+              <Text
+                size="sm"
+                ta="center"
+                fw={700}
+                opacity={hovered ? 1 : 0}
+                pb="6rem"
+                style={{
+                  fontFamily: branchdata.font ? `var(${branchdata.font})` : "",
+                }}
+              >
                 {branchdata.quote}
               </Text>
             </motion.div>
@@ -360,12 +371,7 @@ export function PageEntry() {
                   <Paper
                     key={index}
                     className={classes.loaderCircle}
-                    style={{
-                      background:
-                        index == 4
-                          ? "var(--mantine-color-gray-0)"
-                          : "var(--mantine-color-gray-3)",
-                    }}
+                    bg="gray.2"
                   >
                     <Center h={160}>
                       {index == 2 && (
@@ -375,7 +381,7 @@ export function PageEntry() {
                         <Image w={100} h={100} src={branches[1].image} />
                       )}
                       {index == 4 && (
-                        <Image w={100} h={100} src={images.logo.main} />
+                        <Image w={160} h={160} src={images.logo.main} />
                       )}
                       {index == 5 && (
                         <Image w={100} h={100} src={branches[2].image} />
@@ -418,30 +424,6 @@ export function PageEntry() {
                 <Text size="sm" ta="center" mb="xl" fw={900}>
                   CLASSICS PROJECTS
                 </Text>
-
-                <Text size="2rem" ta="center" visibleFrom="lg">
-                  We create, you{" "}
-                  <i
-                    style={{
-                      fontSize: "4rem",
-                      fontFamily: "Yesteryear",
-                    }}
-                  >
-                    celebrate
-                  </i>
-                </Text>
-
-                <Text size="xl" ta="center" hiddenFrom="lg">
-                  We create, you{" "}
-                  <i
-                    style={{
-                      fontSize: "2rem",
-                      fontFamily: "Yesteryear",
-                    }}
-                  >
-                    celebrate
-                  </i>
-                </Text>
               </Stack>
             </Center>
           </motion.div>
@@ -476,6 +458,39 @@ export function PageEntry() {
             </SimpleGrid>
           </div>
         </Container>
+
+        <div
+          style={{
+            position: "absolute",
+            bottom: "3rem",
+            width: "100vw",
+            left: 0,
+          }}
+        >
+          <Text size="2rem" ta="center" visibleFrom="lg">
+            We create, you{" "}
+            <i
+              style={{
+                fontSize: "4rem",
+                fontFamily: "Yesteryear",
+              }}
+            >
+              celebrate
+            </i>
+          </Text>
+
+          <Text size="xl" ta="center" hiddenFrom="lg">
+            We create, you{" "}
+            <i
+              style={{
+                fontSize: "2rem",
+                fontFamily: "Yesteryear",
+              }}
+            >
+              celebrate
+            </i>
+          </Text>
+        </div>
       </motion.section>
     </section>
   );
