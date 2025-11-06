@@ -61,8 +61,8 @@ export function PageHome() {
       <SectionHomeFeatured />
       <SectionHomeStats />
       <SectionHomeInstagram />
-      <SectionContact />
-      <Footer />
+      {/* <SectionContact /> */}
+      {/* <Footer /> */}
 
       {/* <main data-snap-root className={styles.snapContainer}>
         <section className={styles.snapSection} data-hero>

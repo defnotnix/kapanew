@@ -60,9 +60,9 @@ export function SectionHomePhase() {
       </div>
 
       <motion.div
-        variants={variantTextAnimate(0.1)}
+        variants={variantTextAnimate(0.1, true)}
         initial="initial"
-        animate="visible"
+        animate={hovered !== 0 ? "" : "visible"}
         style={{
           zIndex: 5,
           position: "absolute",
@@ -71,7 +71,7 @@ export function SectionHomePhase() {
         }}
       >
         <Text
-          size="xs"
+          size="sm"
           fw={600}
           ta="center"
           c={hovered ? "var(--kc-color-50)" : "var(--kc-color-800)"}
@@ -79,14 +79,14 @@ export function SectionHomePhase() {
             transition: ".2s ease-in-out",
           }}
         >
-          SPLITS BY KAPA
+          What are you looking for?
         </Text>
       </motion.div>
 
       <motion.div
         variants={variantTextAnimate(0.1)}
         initial="initial"
-        animate="visible"
+        animate={hovered !== 0 ? "" : "visible"}
         style={{
           zIndex: 5,
           position: "absolute",
@@ -95,7 +95,7 @@ export function SectionHomePhase() {
         }}
       >
         <Text
-          size="xs"
+          size="sm"
           fw={600}
           ta="center"
           c={hovered ? "var(--kc-color-50)" : "var(--kc-color-800)"}
@@ -103,7 +103,7 @@ export function SectionHomePhase() {
             transition: ".2s ease-in-out",
           }}
         >
-          HOVER ON ANY SIDE
+          Explore what suits your Celebrations.
         </Text>
       </motion.div>
 
@@ -140,30 +140,61 @@ export function SectionHomePhase() {
                 height: "100vh",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 cursor: "pointer",
+                padding: "100px 0",
               }}
             >
               <Text
+                size="sm"
+                c="var(--kc-color-50)"
+                fw={800}
                 ta="center"
-                c={hovered == 1 ? "var(--kc-color-100)" : "var(--kc-color-900)"}
-                style={{
-                  fontSize: "6rem",
-                  lineHeight: "6.8rem",
-                  fontFamily: "var(--kc-font-heading)",
-                }}
-                fw={700}
+                style={{ transition: ".2s ease-in-out" }}
+                opacity={hovered == 1 ? 0.5 : 0}
               >
-                Decors
-                <br />
-                by KaPa.
+                Decors by KaPa
               </Text>
+
+              <div>
+                <Text
+                  ta="center"
+                  c={
+                    hovered == 1 ? "var(--kc-color-100)" : "var(--kc-color-900)"
+                  }
+                  style={{
+                    fontSize: "6rem",
+                    lineHeight: "6.8rem",
+                    fontFamily: "var(--kc-font-heading)",
+                  }}
+                  fw={700}
+                >
+                  Decors
+                  <br />
+                  by KaPa.
+                </Text>
+                <Text
+                  c={
+                    hovered == 1 ? "var(--kc-color-100)" : "var(--kc-color-900)"
+                  }
+                  size="sm"
+                  ta="center"
+                  mt="md"
+                  fw={700}
+                >
+                  For planners at heart who want their event
+                  <br /> beautifully styled and flawlessly managed on the décor
+                  front.
+                </Text>
+              </div>
+
               <Text
-                c={hovered == 1 ? "var(--kc-color-100)" : "var(--kc-color-900)"}
-                size="xs"
+                size="sm"
+                c="var(--kc-color-50)"
+                fw={800}
                 ta="center"
-                mt="md"
-                fw={700}
+                style={{ transition: ".2s ease-in-out" }}
+                opacity={hovered == 1 ? 0.5 : 0}
               >
                 Aesthetic Elegance, Made Simple
               </Text>
@@ -194,34 +225,63 @@ export function SectionHomePhase() {
                 height: "100vh",
                 display: "flex",
                 flexDirection: "column",
-                justifyContent: "center",
+                justifyContent: "space-between",
                 cursor: "pointer",
+                padding: "100px 0",
               }}
             >
               <Text
+                size="sm"
+                c="var(--kc-color-50)"
+                fw={800}
                 ta="center"
-                c={hovered == 2 ? "var(--kc-color-100)" : "var(--kc-color-900)"}
-                style={{
-                  fontSize: "6rem",
-                  lineHeight: "6.8rem",
-                  fontFamily: "var(--kc-font-heading)",
-                }}
-                fw={700}
+                style={{ transition: ".2s ease-in-out" }}
+                opacity={hovered == 2 ? 0.5 : 0}
               >
-                Full Circle
-                <br />
-                by KaPa.
+                Full-Circle by KaPa
               </Text>
 
+              <div>
+                <Text
+                  ta="center"
+                  c={
+                    hovered == 2 ? "var(--kc-color-100)" : "var(--kc-color-900)"
+                  }
+                  style={{
+                    fontSize: "6rem",
+                    lineHeight: "6.8rem",
+                    fontFamily: "var(--kc-font-heading)",
+                  }}
+                  fw={700}
+                >
+                  Full Circle
+                  <br />
+                  by KaPa.
+                </Text>
+
+                <Text
+                  size="sm"
+                  ta="center"
+                  mt="md"
+                  c={
+                    hovered == 2 ? "var(--kc-color-100)" : "var(--kc-color-900)"
+                  }
+                  fw={700}
+                >
+                  A premium full fledged service <br /> package designed for
+                  stress-free, seamless execution.
+                </Text>
+              </div>
+
               <Text
-                size="xs"
+                size="sm"
+                c="var(--kc-color-50)"
+                fw={800}
                 ta="center"
-                mt="md"
-                c={hovered == 2 ? "var(--kc-color-100)" : "var(--kc-color-900)"}
-                fw={700}
+                style={{ transition: ".2s ease-in-out" }}
+                opacity={hovered == 2 ? 0.5 : 0}
               >
-                A premium full-service package designed for stress-free,
-                seamless execution.
+                Designed for Stress-free & Seamless Execution
               </Text>
             </motion.div>
           </div>

@@ -15,10 +15,8 @@ export function SectionHomeIntro() {
     (item: any) => item.holder == "kc-home-intro"
   );
 
-  if(!sectionData){
-    return(
-      <></>
-    )
+  if (!sectionData) {
+    return <></>;
   }
 
   return (
@@ -32,13 +30,13 @@ export function SectionHomeIntro() {
         size="md"
         py={{
           base: 200,
-          lg: 160,
+          lg: 200,
         }}
       >
         <Center>
           <Stack gap="xl">
-            <Text size="xs" fw={600} ta="center" c="var(--kc-color-900)">
-              {sectionData?.text?.subheading}
+            <Text size="sm" fw={600} ta="center" c="var(--kc-color-900)">
+              Our Essence / Promise / Philosophy
             </Text>
             <motion.div
               variants={variantTextAnimate(0.1)}
@@ -46,7 +44,19 @@ export function SectionHomeIntro() {
               animate="visible"
             >
               <Text ta="center" className="kc-heading" fw={600}>
-                {sectionData?.text?.heading}
+                Your dreams, transformed into timeless celebrations where every
+                moment becomes a memory that lasts forever, and every detail
+                unfolds effortlessly in a{" "}
+                <span style={{ textDecoration: "line-through", opacity: 0.3 }}>
+                  stressful
+                </span>{" "}
+                <span
+                  style={{
+                    color: "var(--kc-color-700)",
+                  }}
+                >
+                  stress-free experience.
+                </span>
               </Text>
             </motion.div>
           </Stack>

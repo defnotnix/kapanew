@@ -31,7 +31,14 @@ export function ClientWrapper({ children }: PropsWithChildren) {
         imgLogo={images.logo.celebrations_small}
         type="kc"
         title="Celebrations"
-        description={`We turn every corporate, public, and entertainment moment into a brand story.`}
+        description={
+          <>
+            {" "}
+            With you, for your
+            <br />
+            Celebrations & Memories.
+          </>
+        }
         baseUrl="/kapa-celebrations"
         revertStyleUrls={["/kapa-celebrations", "/kapa-celebrations/services"]}
       />

@@ -7,19 +7,6 @@ import imgYouth from "../assets/services/youth.jpg";
 
 export const mockServiceCategoryCelebrations = [
   {
-    id: 1,
-    label: "Early Childhood",
-    image: imgBaby.src,
-    description:
-      "Welcoming new life with heartfelt rituals that honor tradition, motherhood, and joyous beginnings.",
-    subCategory: [
-      "Baby Showers",
-      "Gender Reveal Parties",
-      "Naming Ceremonies (Nwaran)",
-      "Rice Feeding / Weaning Ceremony (Pasni)",
-    ],
-  },
-  {
     id: 2,
     label: "Childhood Rituals",
     image: imgChild.src,

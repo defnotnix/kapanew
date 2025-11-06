@@ -21,17 +21,13 @@ import { motion } from "framer-motion";
 import { images } from "@classics/ui";
 
 import {
-  CaretLeft,
   CaretLeftIcon,
   CaretRightIcon,
   CircleIcon,
 } from "@phosphor-icons/react";
 import { CardClassics } from "./Cards/CardClassics";
-import { CardDetails } from "./Cards/CardDetails";
-import { CardDuringCover } from "./Cards/CardDuring";
 import { CardPostCover } from "./Cards/CardPost";
 import { CardPreCover } from "./Cards/CardPre";
-import { CardQuote } from "./Cards/CardQuote";
 import {
   variantClassicsLeft,
   variantClassicsRight,

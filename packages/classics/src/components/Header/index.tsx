@@ -62,7 +62,7 @@ export function Header({
                       : ""
                   }
                 >
-                  The KaPa
+                  KaPa
                   <br />
                   {title}
                 </Text>
@@ -118,7 +118,7 @@ export function Header({
                     : ""
                 }
               >
-                +977 98121231223
+                +977 9801464626/ 9801464627
               </Button>
 
               <Button
@@ -131,14 +131,14 @@ export function Header({
                 }}
                 leftSection={<MailboxIcon weight="fill" />}
                 component="a"
-                href="mailto:hello@classicsprojects.com.np"
+                href="mailto:classics.projects@gmail.com"
                 c={
                   revertStyleUrl.includes(pathname) && !overrule
                     ? `var(--${type}-color-50)`
                     : ""
                 }
               >
-                hello@classicsprojects.com.np
+                classics.projects@gmail.com
               </Button>
             </Group>
 

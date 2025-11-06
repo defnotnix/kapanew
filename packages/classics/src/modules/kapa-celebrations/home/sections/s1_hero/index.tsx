@@ -97,9 +97,7 @@ export function SectionHomeHero() {
   // * ANIMATIONS
 
   if (!sectionData) {
-    return (
-     <></>
-    );
+    return <></>;
   }
 
   return (
@@ -116,7 +114,7 @@ export function SectionHomeHero() {
       </div>
 
       <motion.div
-        initial={{ opacity: 0, transform: "rotate(0)" }}
+        initial={{ opacity: 0, transform: "rotate(-30deg)" }}
         animate={
           sectionData
             ? {

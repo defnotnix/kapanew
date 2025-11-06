@@ -80,12 +80,13 @@ export function SectionHomeServices() {
     >
       {state?.preData?.serviceCategory?.map((item: any, index: number) => {
         const positions = [
-          { top: -64, left: 60, rot: -3 },
-          { top: -32, left: 280, rot: 5 },
-          { top: 200, left: 0, rot: -6 },
-          { top: 300, left: 250, rot: 4 },
-          { top: -64, left: 500, rot: -5 },
-          { top: 200, left: 500, rot: 6 },
+          { top: -100, left: 330, rot: 5 },
+          { top: -80, left: 100, rot: -3 },
+
+          { top: 200, left: 0, rot: 5 },
+
+          { top: 200, left: 250, rot: -6 },
+          { top: 200, left: 500, rot: 4 },
         ];
         const pos = positions[index % positions.length];
         const isActive = active === index;
@@ -200,7 +201,7 @@ export function SectionHomeServices() {
                     py="xl"
                     visibleFrom="lg"
                   >
-                    & GENERALLY A WIDE RAGE OF PRIVATE & PUBLIC EVENTS
+                    & GENERALLY A WIDE RAGE OF PERSONAL CELEBRATIONS
                   </Text>
 
                   <Text
@@ -211,7 +212,7 @@ export function SectionHomeServices() {
                     ta="center"
                     hiddenFrom="lg"
                   >
-                    & GENERALLY A WIDE RAGE OF PRIVATE & PUBLIC EVENTS
+                    & GENERALLY A WIDE RAGE OF PERSONAL CELEBRATIONS
                   </Text>
                 </motion.div>
               </Stack>

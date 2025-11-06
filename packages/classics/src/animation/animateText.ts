@@ -1,11 +1,7 @@
-export const variantTextAnimate = (
-  delay: number,
-  initialLineHeight?: number,
-  visibleLineHeight?: number
-) => {
+export const variantTextAnimate = (delay: number, reverse: boolean = false) => {
   return {
     initial: {
-      y: 50,
+      y: reverse ? -50 : 50,
       opacity: 0,
       filter: "blur(16px)",
     },

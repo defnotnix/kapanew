@@ -107,25 +107,6 @@ export function SectionHomeFeatured() {
               <br /> Featured Celebrations
             </div>
           </motion.div>
-
-          <motion.div
-            variants={variantTextAnimate(0)}
-            initial="initial"
-            animate="visible"
-          >
-            <div
-              className="celebration-heading"
-              style={{
-                color: "var(--kc-color-400)",
-                fontSize: "2rem",
-                lineHeight: "2rem",
-              }}
-            >
-              A deep dive into how we
-              <br /> transform a celebration vision
-              <br /> into reality.
-            </div>
-          </motion.div>
         </Group>
 
         <Group py="xl" justify="space-between" hiddenFrom="lg">
@@ -184,7 +165,7 @@ export function SectionHomeFeatured() {
           width: "100%",
           height: "50px",
           zIndex: 0,
-          transform: "rotate(2deg)",
+          transform: "rotate(-6deg)",
         }}
       ></div>
     </motion.section>
