@@ -39,19 +39,19 @@ export function PageHome() {
     initialData: false,
   });
 
-  // if (isFetching) {
-  //   return (
-  //     <section>
-  //       <Center
-  //         style={{
-  //           height: "100vh",
-  //         }}
-  //       >
-  //         <Loader type="dots" color="var(--kc-color-600)" />
-  //       </Center>
-  //     </section>
-  //   );
-  // }
+  if (isFetching) {
+    return (
+      <section>
+        <Center
+          style={{
+            height: "100vh",
+          }}
+        >
+          <Loader type="dots" color="var(--kc-color-600)" />
+        </Center>
+      </section>
+    );
+  }
 
   return (
     <>
