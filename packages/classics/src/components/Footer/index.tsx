@@ -368,8 +368,28 @@ export function Footer() {
                           FIND US
                         </Text>
                         <Stack gap="4px">
-                          <Anchor c="gray.0">Facebook</Anchor>
-                          <Anchor c="gray.0">Instagram</Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              window.open(
+                                "https://www.facebook.com/classicsprojects/",
+                                "_blank"
+                              );
+                            }}
+                          >
+                            Facebook
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              window.open(
+                                "https://www.instagram.com/classicsprojects.celebrations/",
+                                "_black"
+                              );
+                            }}
+                          >
+                            Instagram
+                          </Anchor>
                           <Anchor c="gray.0">Twitter</Anchor>
                           <Anchor c="gray.0">X</Anchor>
                           <Anchor c="gray.0">Linked In</Anchor>
