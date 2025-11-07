@@ -136,8 +136,9 @@ function RenderCards() {
             <Paper
               px="xs"
               onClick={() => {
-                Router.push(
-                  "https://www.facebook.com/photo.php?fbid=695081409286053&set=pb.100063526001676.-2207520000&type=3"
+                window.open(
+                  "https://www.instagram.com/classicsprojects.celebrations/",
+                  "_blank"
                 );
               }}
             >
@@ -173,8 +174,9 @@ function RenderCards() {
           >
             <Paper
               onClick={() => {
-                Router.push(
-                  "https://www.facebook.com/photo.php?fbid=683587993768728&set=pb.100063526001676.-2207520000&type=3"
+                window.open(
+                  "https://www.facebook.com/classicsprojects/",
+                  "_blank"
                 );
               }}
               px="xs"
