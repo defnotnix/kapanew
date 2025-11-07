@@ -245,10 +245,16 @@ export function Footer() {
                   <motion.div {...animProps(0)}>
                     <Group mt={{ base: 32, lg: 0 }}>
                       <Text size="xs" c="gray.0">
-                        FOR CELEBRATIONS
+                        KaPa Celebrations
                       </Text>
                       <Text size="xs" c="gray.0" opacity={0.5}>
-                        FOR EVENTS
+                        KaPa Events
+                      </Text>
+                      <Text size="xs" c="gray.0" opacity={0.5}>
+                        KaPa Societies
+                      </Text>
+                      <Text size="xs" c="gray.0" opacity={0.5}>
+                        KaPa Decors
                       </Text>
                     </Group>
                   </motion.div>
@@ -401,7 +407,7 @@ export function Footer() {
 
                   <Space visibleFrom="lg" h="xl" />
 
-                  <motion.div {...animProps(0.4)}>
+                  {/* <motion.div {...animProps(0.4)}>
                     <Stack gap="sm" my="xs">
                       <Text size="xs" c="gray.0" opacity={0.5} ta="right">
                         OFFICE
@@ -411,8 +417,8 @@ export function Footer() {
                         The Classics Projects HQ,
                       </Text>
                       <Text size="xs" c="gray.0" ta="right">
-                        Lan Rd Marg, Himalayan Floral Enterprises,
-                        <br /> Nayabasti, Kathmandu, Nepal.
+                        Yangal Tole, -23, Nisthananda Marg,
+                        <br /> Kathmandu Nepal
                       </Text>
                       <Text size="xs" c="gray.0" ta="right">
                         Sunday - Friday ( 10 AM - 5 PM)
@@ -433,7 +439,7 @@ export function Footer() {
                         classics.projects@gmail.com
                       </Text>
                     </Stack>
-                  </motion.div>
+                  </motion.div> */}
                 </Grid.Col>
 
                 {/* Right column (below LG) */}
@@ -811,8 +817,28 @@ export function FooterEvents() {
                           FIND US
                         </Text>
                         <Stack gap="4px">
-                          <Anchor c="gray.0">Facebook</Anchor>
-                          <Anchor c="gray.0">Instagram</Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              window.open(
+                                "https://www.facebook.com/classicsprojects/",
+                                "_blank"
+                              );
+                            }}
+                          >
+                            Facebook
+                          </Anchor>
+                          <Anchor
+                            c="gray.0"
+                            onClick={() => {
+                              window.open(
+                                "https://www.instagram.com/classicsprojects.celebrations/",
+                                "_black"
+                              );
+                            }}
+                          >
+                            Instagram
+                          </Anchor>
                           <Anchor c="gray.0">Twitter</Anchor>
                           <Anchor c="gray.0">X</Anchor>
                           <Anchor c="gray.0">Linked In</Anchor>
