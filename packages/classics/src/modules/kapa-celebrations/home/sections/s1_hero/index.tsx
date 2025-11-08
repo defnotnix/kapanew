@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 //next
 //mantine
 import {
-  ActionIcon,
   AspectRatio,
   Avatar,
   Box,
@@ -12,9 +11,7 @@ import {
   Container,
   Grid,
   Group,
-  Loader,
   Modal,
-  SimpleGrid,
   Stack,
   Text,
   ThemeIcon,
@@ -31,11 +28,8 @@ import { GlassFrame, usePageContext, variantTextAnimate } from "@classics/ui";
 
 import { useDisclosure } from "@mantine/hooks";
 import {
-  CaretLeftIcon,
-  CaretRightIcon,
   InstagramLogoIcon,
   MouseMiddleClickIcon,
-  Play,
   QuotesIcon,
   WhatsappLogoIcon,
 } from "@phosphor-icons/react";
@@ -148,7 +142,7 @@ export function SectionHomeHero() {
         <Grid>
           <Grid.Col
             span={{ base: 12, lg: 5 }}
-            pt={{ base: 130, lg: 300 }}
+            pt={{ base: 130, lg: 250 }}
             h={{ base: "50vh", lg: "100vh" }}
             style={{
               display: "flex",
@@ -252,13 +246,23 @@ export function SectionHomeHero() {
 
             <Group gap="2rem" visibleFrom="lg">
               <Text c="gray.0" size="xs" fw={700} opacity={0.5}>
-                THE CLASSICS SOCIALS
+                KAPA SOCIALS
               </Text>
 
               <div>
                 <Group>
-                  <WhatsappLogoIcon weight="fill" color="white" />
-                  <InstagramLogoIcon weight="fill" color="white" />
+                  <WhatsappLogoIcon
+                    onClick={() => window.open("https://wa.me/947639260037")}
+                    weight="fill"
+                    color="white"
+                  />
+                  <InstagramLogoIcon
+                    onClick={() =>
+                      window.open("https://www.instagram.com/kapa_projects/")
+                    }
+                    weight="fill"
+                    color="white"
+                  />
                 </Group>
               </div>
             </Group>
@@ -285,7 +289,16 @@ export function SectionHomeHero() {
               </Text>
 
               <Center mt="md">
-                <MouseMiddleClickIcon color="white" weight="fill" size={16} />
+                <motion.div
+                  animate={{ y: [0, -8, 0] }} // moves up and back down
+                  transition={{
+                    duration: 2, // 1 second per loop
+                    repeat: Infinity, // infinite loop
+                    ease: "easeInOut",
+                  }}
+                >
+                  <MouseMiddleClickIcon color="white" weight="fill" size={16} />
+                </motion.div>
               </Center>
             </motion.div>
           </Grid.Col>
@@ -377,54 +390,17 @@ export function SectionHomeHero() {
                 </motion.div>
               </Stack>
 
-              <Box my={{ base: 0, lg: "xl" }}>
-                <Group justify="flex-end" gap="xs">
-                  <ActionIcon
-                    bg="none"
-                    variant="subtle"
-                    color="gray"
-                    onClick={() => {
-                      slideChange(active !== 0 ? active - 1 : 2);
-                    }}
-                  >
-                    <CaretLeftIcon weight="fill" />
-                  </ActionIcon>
-                  <ActionIcon
-                    variant="subtle"
-                    color="gray"
-                    onClick={() => {
-                      slideChange(active !== 2 ? active + 1 : 0);
-                    }}
-                  >
-                    <CaretRightIcon weight="fill" />
-                  </ActionIcon>
-                </Group>
-
-                <SimpleGrid cols={2}>
-                  <EventPicker data={sectionData} onSlideChange={slideChange} />
-
-                  <Group justify="flex-end">
-                    <ActionIcon
-                      onClick={open}
-                      className={classes.playreel}
-                      bg="rgba(0,0,0,.5)"
-                      size="73px"
-                      radius={999}
-                    >
-                      <Play weight="fill" />
-                    </ActionIcon>
-                  </Group>
-                </SimpleGrid>
-              </Box>
-
-              <Group justify="space-between" w="100%">
-                <Text c="gray.0" size="xs" fw={700} opacity={0.5}>
-                  HOVER & SELECT
-                </Text>
-                <Text c="gray.0" size="xs" fw={700} opacity={0.5}>
-                  EVENT SHOWREEL
-                </Text>
-              </Group>
+              <EventPicker
+                data={sectionData}
+                active={active}
+                onSlideChange={(e: any) => {
+                  if (active == e) {
+                    open();
+                  } else {
+                    slideChange(e);
+                  }
+                }}
+              />
             </Stack>
           </Grid.Col>
         </Grid>
