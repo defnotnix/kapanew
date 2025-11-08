@@ -63,6 +63,7 @@ export function EventPicker({ data = [], onSlideChange, active }: any) {
                   p={6}
                   pb={16}
                   className={classes.eventcard}
+                  style={active == index ? { zIndex: 4 } : {}}
                 >
                   <Image
                     src={item.image}
