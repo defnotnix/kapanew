@@ -119,7 +119,7 @@ export function SectionShowcase() {
         <Box
           component={motion.div}
           style={{
-            x,
+            x: x ? Number(x) : 0,
             display: "flex",
             alignItems: "stretch",
             willChange: "transform",
