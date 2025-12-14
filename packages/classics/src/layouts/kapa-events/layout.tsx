@@ -6,13 +6,6 @@ import { MantineProvider } from "@mantine/core";
 //react-query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 //context
-import {
-  ContextPageProvider,
-  Header,
-  LoadingOverlay,
-  NavDrawer,
-  usePageContext,
-} from "@classics/ui";
 import { ClientWrapper } from "./clientwrapper";
 import { configTheme } from "./theme";
 //theme
