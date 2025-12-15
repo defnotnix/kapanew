@@ -32,7 +32,7 @@ export function LayoutIntro({ children }: PropsWithChildren) {
       <body
         style={{
           transition: ".3s ease-in-out",
-          background: "var(--ke-color-100)",
+          background: "var(--kc-color-100)",
         }}
       >
         <LayoutIntroMain>{children}</LayoutIntroMain>
