@@ -1,2 +1,2 @@
-import { PageEntry } from "@classics/ui";
-export default PageEntry;
+import { ModuleMaintainance } from "@classics/ui";
+export default ModuleMaintainance;
